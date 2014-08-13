@@ -10,4 +10,12 @@ describe User do
     expect(@user.name).to match 'Test User'
   end
 
+  describe 'relation with Message' do
+    let!(:message) { FactoryGirl.create(:message, from_uid: @user.uid) }
+
+    it 'has many messages' do
+      expect(@user.messages.first).to eql(message)
+    end
+  end
+
 end
