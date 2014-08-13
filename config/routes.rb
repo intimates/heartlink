@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+
   resources :users, :only => [:index, :show]
   root to: 'visitors#index'
   get '/auth/:provider/callback' => 'sessions#create'
