@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813072139) do
+ActiveRecord::Schema.define(version: 20140813074239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140813072139) do
     t.float    "pn_value"
     t.datetime "opened_at"
     t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pn_jp_words", force: true do |t|
+    t.string   "word"
+    t.string   "kana"
+    t.string   "pos"
+    t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

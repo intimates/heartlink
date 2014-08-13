@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pn_jp_words
+
   resources :messages
 
   resources :users, :only => [:index, :show]
