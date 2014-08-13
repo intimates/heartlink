@@ -39,3 +39,22 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+group :development, :test do
+  gem 'pry'
+  gem 'awesome_print'
+  gem 'hirb'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-git'
+  gem 'pry-remote'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+  gem 'coolline'
+  gem 'coderay'
+  gem 'pry-rescue'
+  gem 'gnuplot'
+  gem 'commands'
+  gem 'rails-env-switcher'
+  gem 'rspec-console'
+end
