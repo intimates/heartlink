@@ -13,6 +13,9 @@ gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pg'
+
+gem 'mecab-ruby', path: './local_gems/mecab-ruby-0.996'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

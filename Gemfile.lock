@@ -1,3 +1,8 @@
+PATH
+  remote: ./local_gems/mecab-ruby-0.996
+  specs:
+    mecab-ruby (0.996)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -247,6 +252,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mecab-ruby!
   omniauth
   omniauth-facebook
   pg
