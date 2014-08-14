@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :messages
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :messages, :only => [:show]
+    end
+  end
 end
