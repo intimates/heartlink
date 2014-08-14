@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /messages
   # GET /messages.json
@@ -25,6 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    @message.sent_at = Time.now
 
     respond_to do |format|
       if @message.save
@@ -69,6 +71,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:to_uid, :from_uid, :body, :raw_body, :pn_value, :opened_at, :sent_at)
+      params.require(:message).permit(:to_uid, :from_uid, :body, :raw_body)
     end
 end
