@@ -1,6 +1,7 @@
 class Api::V1::MessagesController < ApplicationController
   protect_from_forgery with: :null_session
 
+  before_action :authenticate
   before_action :set_message, only: [:show]
 
   def show
@@ -33,4 +34,10 @@ class Api::V1::MessagesController < ApplicationController
       params.require(:message).permit(:to_uid, :from_uid, :body, :raw_body)
     end
 
+    def authenticate
+      authenticate_or_request_with_http_token do |token, options|
+        # TODO: Use token, not uid
+        @current_user = User.find_by(uid: token)
+      end
+    end
 end
