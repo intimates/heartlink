@@ -1,0 +1,9 @@
+<h1>Messages</h1>
+
+<ul>
+ {{#each model}}
+ <li>{{#link-to 'message' this}}{{this.id}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
