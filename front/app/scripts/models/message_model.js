@@ -1,6 +1,7 @@
 /*global Ember*/
 Front.Message = DS.Model.extend({
   body: DS.attr('string'),
+  pn_value: DS.attr('number'),
   sent_at: DS.attr('date')
 });
 
