@@ -15,6 +15,7 @@ gem 'omniauth-facebook'
 gem 'pg'
 
 gem 'mecab-ruby', path: './local_gems/mecab-ruby-0.996'
+gem "paranoia", "~> 2.0"
 
 group :development do
   gem 'better_errors'
