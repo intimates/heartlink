@@ -7,36 +7,28 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
 
   def index
     @messages = Message.where(to_uid: @user.uid)
-    respond_to do |format|
-      format.json { render json: @messages, status: :ok }
-    end
+    render json: @messages, status: :ok
   end
 
   def sent
     @messages = Message.where(from_uid: @user.uid)
-    respond_to do |format|
-      format.json { render json: @messages, status: :ok }
-    end
+    render json: @messages, status: :ok
   end
 
   def show
     @message.opened_at = Time.now
     @message.save
-    respond_to do |format|
-      format.json { render json: @message, status: :ok }
-    end
+    render json: @message, status: :ok
   end
 
   # TODO: Authentication (now anyone can create new messages)
   def create
     @message = Message.new(message_params)
     @message.sent_at = Time.now
-    respond_to do |format|
-      if @message.save
-        format.json { render text: 'message successfully created.', status: :created }
-      else
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.save
+      render text: 'message successfully created.', status: :created
+    else
+      render json: @message.errors, status: :unprocessable_entity
     end
   end
 
