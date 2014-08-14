@@ -1,5 +1,8 @@
 /*global Ember*/
-Front.User = DS.Model.extend({});
+Front.User = DS.Model.extend({
+  name: DS.attr('string'),
+  uid: DS.attr('string')
+});
 
 // probably should be mixed-in...
 Front.User.reopen({
@@ -10,18 +13,3 @@ Front.User.reopen({
     });
   }.property()
 });
-
-// delete below here if you do not want fixtures
-Front.User.FIXTURES = [
-
-  {
-    id: 0,
-
-  },
-
-  {
-    id: 1,
-
-  }
-
-];
