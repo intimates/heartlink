@@ -1,4 +1,5 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::ApplicationController
+  before_action :cors_set_access_control_headers
 
   def index
     @users = User.all

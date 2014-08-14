@@ -1,8 +1,9 @@
-class Api::V1::MessagesController < ApplicationController
+class Api::V1::MessagesController < Api::V1::ApplicationController
   protect_from_forgery with: :null_session
 
   before_action :authenticate
   before_action :set_message, only: [:show]
+  before_action :cors_set_access_control_headers
 
   def index
     @messages = Message.where(to_uid: @user.uid)
