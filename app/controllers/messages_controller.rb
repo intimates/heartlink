@@ -11,6 +11,8 @@ class MessagesController < ApplicationController
   end
 
   def show
+    @message.opened_at = Time.now
+    @message.save
   end
 
   def new
