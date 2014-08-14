@@ -11,18 +11,15 @@ class Message < ActiveRecord::Base
       pn_value = 0
       mecab = MeCab::Tagger.new("-Ochasen")
       node = mecab.parseToNode(self.body)
+      prototypes = []
       while node
         prototype = node.feature.split(/,/)[6]
-        unless prototype == '*'
-          pn_word = PnJpWord.where(word: prototype).first
-          if pn_word
-            pn_value += pn_word.value
-          end
-        end
-
+        prototypes.push(prototype) unless prototype == '*'
         node = node.next
       end
 
+      pn_values = PnJpWord.where(word: prototypes).pluck(:value)
+      pn_value = pn_values.sum / pn_values.size.to_f
       self.update_attributes(pn_value: pn_value)
     end
 end
