@@ -4,6 +4,20 @@ class Api::V1::MessagesController < ApplicationController
   before_action :authenticate
   before_action :set_message, only: [:show]
 
+  def index
+    @messages = Message.where(to_uid: @user.uid)
+    respond_to do |format|
+      format.json { render json: @messages, status: :ok }
+    end
+  end
+
+  def sent
+    @messages = Message.where(from_uid: @user.uid)
+    respond_to do |format|
+      format.json { render json: @messages, status: :ok }
+    end
+  end
+
   def show
     @message.opened_at = Time.now
     @message.save
@@ -37,7 +51,7 @@ class Api::V1::MessagesController < ApplicationController
     def authenticate
       authenticate_or_request_with_http_token do |token, options|
         # TODO: Use token, not uid
-        @current_user = User.find_by(uid: token)
+        @user = User.find_by(uid: token)
       end
     end
 end
