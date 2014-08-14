@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :messages, :only => [:index, :show, :create]
       get '/sent_messages' => 'messages#sent'
+
+      resources :users, :only => [:index, :show]
     end
   end
 end
