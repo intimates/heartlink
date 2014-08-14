@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :pn_jp_words
 
   resources :messages
+  get '/sent_messages' => 'messages#sent'
 
   resources :users, :only => [:index, :show]
   root to: 'visitors#index'
