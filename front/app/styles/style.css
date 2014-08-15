@@ -2,3 +2,140 @@
 html, body {
     margin: 30px 0;
 }
+
+div.message_bubble
+{
+    background-color: rgba(129, 204, 42, 0.7);
+    border-radius: 25px;
+    box-shadow: 0px 0px 3px 3px rgba(129, 204, 42, 0.7);
+    cursor: pointer;
+    height: 50px;
+    margin: 10px;
+    position: absolute;
+    width: 50px;
+    z-index: 2;
+}
+
+div.message_time
+{
+    color: rgba(112, 128, 144, 1);
+    font-size: small;
+    position: absolute;
+    z-index: 2;
+}
+
+div.message_pn_value
+{
+    color: rgba(129, 204, 42, 1);
+    cursor: pointer;
+    font-size: small;
+    height: 24px;
+    margin: 0px;
+    padding: 0px 3px 0px 3px;
+    position: absolute;
+    width: 24px;
+    z-index: 2;
+}
+
+div.message_body
+{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #999;
+    border-radius: 10px;
+    display:none;
+    font-size: small;
+    height: 0px;
+    overflow: auto;
+    padding: 5px;
+    position: absolute;
+    width: 0px;
+    z-index: 5;
+}
+
+/* TODO: modularize this (background.css) */
+div.world
+{
+	background: linear-gradient(rgba(17,104,153,1), rgba(156,255,254,1), rgba(204, 68, 37, 0.7), rgba(17,104,153,1));
+	height:1920px;
+	left:0px;
+	position:absolute;
+	top:0px;
+	width:100%;
+}
+
+div.post
+{
+	background-color: rgba(129, 204, 42, 0.7);
+	border-radius: 10px;
+	cursor: pointer;
+	height: 20px;
+	left: 10px;
+	margin: 0px;
+	position: fixed;
+	top: 10px;
+	width: 20px;
+}
+
+div.post_card
+{
+	background-color: rgba(255, 255, 255, 0.8);
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 2px solid rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
+	display: none;
+	height: 10%;
+	margin: 3px;
+	position: absolute;
+	-webkit-transform: (0deg);
+	width: 80%;
+	z-index: 6;
+}
+
+div.curtain
+{
+	background: rgba(255, 255, 255, 0.6);
+	display: none;
+	height:1920px;
+	left:0px;
+	position:fixed;
+	top:0px;
+	width:100%;
+	z-index: 4;
+}
+
+textarea.post_card_body
+{
+	margin: 3px;
+	width: 95%;
+}
+div.user_suggest
+{
+	width: 95%;
+	height: 40px;
+	margin: -2px 3px 3px 2px;
+	border: 1px solid #999; 
+}
+
+div.post_operation
+{
+	text-align: center;
+}
+
+span.post_cancel
+{
+	background: rgba(204, 68, 37, 0.6);
+	border: 2px solid rgba(204, 68, 37, 0.8);
+	font-size: small;
+	margin: 3px;
+	padding:2px;
+}
+span.post_submit
+{
+	background: rgba(129, 204, 42, 0.6);
+	border: 2px solid rgba(129, 204, 42, 0.8);
+	font-size: small;
+	margin: 3px;
+	padding:4px 2px 2px 2px;
+}
