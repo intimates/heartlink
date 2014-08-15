@@ -19,7 +19,11 @@ class Message < ActiveRecord::Base
       end
 
       pn_values = PnJpWord.where(word: prototypes).pluck(:value)
-      pn_value = pn_values.sum / pn_values.size.to_f
+      pn_value = if pn_values.size > 0
+                   pn_values.sum / pn_values.size.to_f
+                 else
+                   0
+                 end
       self.update_attributes(pn_value: pn_value)
     end
 end
