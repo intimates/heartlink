@@ -1,8 +1,10 @@
 <h1>Users</h1>
 
+{{input type="text" placeholder="宛先" value=searchTerm}}
+
 <ul>
- {{#each model}}
- <li>{{#link-to 'user' this}}{{this.id}}{{/link-to}}</li>
+ {{#each filteredUsers}}
+ <li>{{#link-to 'user' this}}{{this.name}}{{/link-to}}</li>
   {{/each}}
 </ul>
 
