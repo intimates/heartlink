@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :messages, :only => [:index, :show, :create]
+      resources :messages, :only => [:index, :show, :create, :destroy]
       get '/sent_messages' => 'messages#sent'
 
       resources :users, :only => [:index, :show]

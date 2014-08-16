@@ -2,7 +2,7 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
   protect_from_forgery with: :null_session
 
   before_action :authenticate
-  before_action :set_message, only: [:show]
+  before_action :set_message, only: [:show, :destroy]
   before_action :cors_set_access_control_headers
 
   def index
@@ -30,6 +30,11 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
     else
       render json: @message.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @message.destroy
+    render json: {}, status: :ok
   end
 
   private
