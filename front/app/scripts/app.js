@@ -7,12 +7,40 @@ window.fbAsyncInit = function() {
     version    : 'v2.0'
   });
 
+  function setCurrentUser() {
+    FB.api('/me', function(response) {
+      var currentUser = {
+        name: response.name,
+        uid: response.id
+      };
+      Ember.set('Front.ApplicationController.currentUser', currentUser);
+
+      // create user
+      $.ajax({
+        url: 'http://localhost:3000/api/v1/users',
+        type: 'post',
+        data: {
+          user: currentUser
+        },
+        statusCode: {
+          201: function() {
+            // alert('user was successfully created.');
+          }
+        }
+      });
+    });
+  }
+
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
-      console.log('Logged in.');
+      setCurrentUser();
     }
     else {
-      FB.login();
+      FB.login(function(response) {
+        if (response.authResponse) {
+          setCurrentUser();
+        }
+      });
     }
   });
 };
