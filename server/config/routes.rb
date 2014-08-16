@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :messages, :only => [:index, :show, :create, :destroy]
       get '/sent_messages' => 'messages#sent'
 
-      resources :users, :only => [:index, :show]
+      resources :users, :only => [:index, :show, :create]
     end
   end
 end
