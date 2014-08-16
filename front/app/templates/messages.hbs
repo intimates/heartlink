@@ -1,11 +1,15 @@
 <h1>Messages</h1>
 
-<div id="world" class="world">
-  {{#each model}}
-  <div {{bind-attr id=this.elementId}} data-message="1" class="message_bubble"></div>
-  <div {{bind-attr id=this.timeId}} class="message_time">{{this.sentTime}}</div>
-  <div {{bind-attr id=this.pnValueId}} class="message_pn_value">{{this.pn_value}}</div>
-  {{/each}}
-</div>
+<!-- <div id="world" class="world"> -->
+  <!-- {{#each model}} -->
+  <!-- <div {{bind-attr id=this.elementId}} data-message="1" class="message_bubble"></div> -->
+  <!-- <div {{bind-attr id=this.timeId}} class="message_time">{{this.sentTime}}</div> -->
+  <!-- <div {{bind-attr id=this.pnValueId}} class="message_pn_value">{{this.pn_value}}</div> -->
+  <!-- {{/each}} -->
+<!-- </div> -->
+
+{{#each model}}
+<li {{action openMessage this}}>{{this.id}}</li>
+{{/each}}
 
 {{outlet}}
