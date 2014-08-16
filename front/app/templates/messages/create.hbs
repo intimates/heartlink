@@ -1,1 +1,11 @@
 <h1>Compose</h1>
+
+{{input type="text" placeholder="宛先" value=searchTerm}}
+
+<ul>
+  {{#each filteredUsers}}
+  <li>{{#link-to 'user' this}}{{this.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
