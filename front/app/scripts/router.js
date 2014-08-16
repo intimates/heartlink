@@ -1,4 +1,5 @@
 Front.Router.map(function () {
+  this.route('login');
 
   this.resource('messages', function(){
     this.resource('message', { path: '/:message_id' }, function(){
