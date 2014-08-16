@@ -1,5 +1,7 @@
 Front.MessagesView = Ember.View.extend({
   didInsertElement: function() {
+    this.get('controller.model').refresh();
+
     function click_event_on(item){
       var msg_id = item.data("message");
       click = {item: item.data("message"), flag: true};

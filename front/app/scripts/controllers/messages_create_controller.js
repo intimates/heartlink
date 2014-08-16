@@ -41,6 +41,8 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
         body: body
       });
       */
+
+      var controller = this;
       $.ajax({
         url: 'http://localhost:3000/api/v1/messages',
         type: 'post',
@@ -58,6 +60,10 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
         statusCode: {
           201: function() {
             alert('message was successfully sent.');
+
+            // reload messages by transitions (there should be a better way)
+            controller.transitionToRoute();
+            controller.transitionToRoute('messages');
           }
         }
       });
