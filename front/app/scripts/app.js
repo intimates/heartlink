@@ -1,13 +1,5 @@
 var Front = window.Front = Ember.Application.create();
 
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '702215373193486',
-    xfbml      : true,
-    version    : 'v2.0'
-  });
-};
-
 (function(d, s, id){
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
