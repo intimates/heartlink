@@ -4,8 +4,10 @@
 
 <ul>
   {{#each filteredUsers}}
-  <li>{{#link-to 'user' this}}{{this.name}}{{/link-to}}</li>
+  <li {{action 'setRecipient' this}}>{{this.name}}</li>
   {{/each}}
 </ul>
 
-{{outlet}}
+{{textarea placeholder="Say something nice" value=messageBody}}
+
+<button {{action 'send'}}>送信</button>
