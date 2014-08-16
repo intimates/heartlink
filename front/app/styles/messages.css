@@ -1,0 +1,53 @@
+div.message_bubble
+{
+	background-color: rgba(255, 255, 255, 0.7);
+	border: 3px solid rgba(0, 0, 0, 0.9);
+	border-radius: 27.5px;
+	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+	height: 50px;
+	position: absolute;
+	width: 50px;
+	z-index: 2;
+}
+
+div.pn_color
+{
+	background-image: -webkit-image-set(url("img/mail_white@x1.png") 1x, url("img/mail_white@x2.png") 2x);
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 26px;
+	height: 52px;
+	margin: -1px 0px 0px -1px;
+	position: absolute;
+	width: 52px;
+	z-index: 2;
+}
+
+div.message_body
+{
+	background-color: rgba(255, 255, 255, 1);
+	background-image: url('img/letter1.png');
+	background-size: 100% 100%;
+	border: 2px solid rgba(0, 0, 0, 0.8);
+	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+	display:none;
+	font-family: 'Hiragino Kaku Gothic ProN';
+	font-size: normal;
+	font-weight: bold;
+	height: 0px;
+	overflow: hidden;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	text-align: center;
+	width: 0px;
+	z-index: 5;
+}
+
+p.message_body_text
+{
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	margin-top: 0px;
+	line-height: 30px;
+}
