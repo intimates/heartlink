@@ -62,7 +62,7 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
         },
         complete: function(){
           $("div#post_card").css({
-            "background-image": "-webkit-image-set(url('img/send_message@x2.gif') 2x)"
+            "background-image": "-webkit-image-set(url('../images/send_message@x2.gif') 2x)"
           }).delay(300).animate({
             "top"    : "-=100px",
             "opacity": 0.0

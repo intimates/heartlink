@@ -1,6 +1,19 @@
 Front.MessagesView = Ember.View.extend({
   isInitialized: false,
 
+  make_environment: function() {
+    $("img#st0").css({left: "20px" , top: "60px"});
+    $("img#st1").css({left: "40px" , top: "40px"});
+    $("img#st2").css({left: "70px" , top: "20px"});
+    $("img#st3").css({left: "90px" , top: "30px"});
+    $("img#st4").css({left: "120px", top: "10px"});
+    $("img#st5").css({left: "180px" , top: "40px"});
+    $("img#st6").css({left: "200px" , top: "50px"});
+    $("img#st7").css({left: "240px" , top: "20px"});
+    $("img#st8").css({left: "280px" , top: "30px"});
+    $("img#st9").css({left: "300px", top: "60px"});
+  },
+
   initTrash: function() {
     var self = this;
 
@@ -63,11 +76,11 @@ Front.MessagesView = Ember.View.extend({
             "border-color": "rgba(255, 96, 37, 0.8)"
           });
           $("div#pn_color"+ msg_id).css({
-            "background-image": "-webkit-image-set(url('img/mail_white@x2.gif') 2x)"
+            "background-image": "-webkit-image-set(url('./images/mail_white@x2.gif') 2x)"
           });
         } else {
           $("div#pn_color"+ msg_id).css({
-            "background-image": "-webkit-image-set(url('img/mail_white_opened@x2.png') 2x)",
+            "background-image": "-webkit-image-set(url('./images/mail_white_opened@x2.png') 2x)",
             "background-position": "center top"
           });
         }
@@ -134,5 +147,6 @@ Front.MessagesView = Ember.View.extend({
 
     this.initTrash();
     this.initMessages();
+    this.make_environment();
   }
 });

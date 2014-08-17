@@ -36,7 +36,7 @@ Front.MessageView = Ember.View.extend({
     });
 
     $("div#pn_color"+ msg_id).css({
-      "background-image"   : "-webkit-image-set(url('img/mail_white_opened@x2.png') 2x)",
+      "background-image"   : "-webkit-image-set(url('./images/mail_white_opened@x2.png') 2x)",
       "background-position": "center top"
     });
 

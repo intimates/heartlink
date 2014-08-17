@@ -12,7 +12,7 @@ div.message_bubble
 
 div.pn_color
 {
-	background-image: -webkit-image-set(url("img/mail_white@x1.png") 1x, url("img/mail_white@x2.png") 2x);
+	background-image: -webkit-image-set(url("../images/mail_white@x1.png") 1x, url("../images/mail_white@x2.png") 2x);
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 26px;
@@ -26,7 +26,7 @@ div.pn_color
 div.message_body
 {
 	background-color: rgba(255, 255, 255, 1);
-	background-image: url('img/letter1.png');
+	background-image: url('../images/letter1.png');
 	background-size: 100% 100%;
 	border: 2px solid rgba(0, 0, 0, 0.8);
 	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
