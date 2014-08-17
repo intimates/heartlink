@@ -1,4 +1,5 @@
 Front.MessagesCreateController = Ember.ArrayController.extend({
+  searchTerm: "",
   toUid: "",
   messageBody: "",
 
@@ -14,7 +15,9 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
 
   actions: {
     setRecipient: function(user) {
+      this.set('searchTerm', user.get('name'));
       this.set('toUid', user.get('uid'));
+      $("div#user_suggest").hide();
     },
 
     cancel: function() {

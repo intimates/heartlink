@@ -15,5 +15,12 @@ Front.MessagesCreateView = Ember.View.extend({
         $(this).css('transform', 'rotate('+ (now) * -0.1 +'deg)');
       }
     });
+
+    $("input#post_card_to").focus(function(){
+      $("div#user_suggest").css({
+        "display": "block",
+        "width"  : $("input#post_card_to").width() + 8 + "px"
+      });
+    });
   }
 });

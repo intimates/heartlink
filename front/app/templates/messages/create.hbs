@@ -3,7 +3,7 @@
     {{input id="post_card_to" class="post_card_to" type="text" placeholder="宛先" value=searchTerm}}
     <div id="user_suggest" class="user_suggest">
       {{#each filteredUsers}}
-      <div {{action 'setRecipient' this}} class="user_select"></div>
+      <div {{action 'setRecipient' this}} class="user_select">{{this.name}}</div>
       {{/each}}
     </div>
 
