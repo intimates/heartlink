@@ -13,8 +13,8 @@ Front.Message = DS.Model.extend({
     return "message" + this.get('id');
   }.property('id'),
 
-  pnValueId: function() {
-    return "pn_value" + this.get('id');
+  pnColorId: function() {
+    return "pn_color" + this.get('id');
   }.property('id'),
 
   timeId: function() {
