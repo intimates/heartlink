@@ -20,7 +20,6 @@ Front.MessagesView = Ember.View.extend({
     $('div#trash').droppable({
       tolerence: 'fit',
       over: function() {
-        console.log('over');
         $("div#trash").css({ "border-color": "rgba(255, 0, 48, 0.7)" });
       },
       out: function() {
@@ -92,6 +91,8 @@ Front.MessagesView = Ember.View.extend({
 
     // Drag
     $("div[id^='message']").draggable({
+      refreshPositions: true,
+
       start: function() {
         $(this).css({"z-index": 5});
 
