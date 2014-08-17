@@ -3,6 +3,7 @@ Front.Message = DS.Model.extend({
   body: DS.attr('string'),
   pn_value: DS.attr('number'),
   sent_at: DS.attr('date'),
+  opened_at: DS.attr('date'),
 
   sentTime: function() {
     var date = this.get('sent_at');
@@ -17,9 +18,13 @@ Front.Message = DS.Model.extend({
     return "pn_color" + this.get('id');
   }.property('id'),
 
-  timeId: function() {
-    return "time" + this.get('id')
-  }.property('id')
+  unread: function() {
+    if (this.get('opened_at') === null) {
+      return "1";
+    } else {
+      return "0";
+    }
+  }.property('opened_at')
 });
 
 // probably should be mixed-in...
