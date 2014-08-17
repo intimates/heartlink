@@ -2,6 +2,8 @@ Front.MessagesView = Ember.View.extend({
   isInitialized: false,
 
   initTrash: function() {
+    var self = this;
+
     $('div#trash').droppable({
       tolerence: 'fit',
       over: function() {
@@ -11,9 +13,25 @@ Front.MessagesView = Ember.View.extend({
       out: function() {
         $("div#trash").css({ "border-color": "rgba(0, 0, 0, 0.7)" });
       },
-      drop: function() {
+      drop: function(event, ui) {
         $("div#trash").css({ "border-color": "rgba(0, 0, 0, 0.7)" });
-        alert("DROP");
+        var controller = self.get('controller')
+        var message_id = $(ui.draggable).data('message');
+        $(ui.draggable).css({ display: 'none' });
+
+        // FIXME: copy of deleteRecord action
+        $.ajax({
+          url: 'http://localhost:3000/api/v1/messages/' + message_id,
+          type: 'delete',
+          headers: {
+            Authorization: 'Token token=688784467878364'
+          },
+          statusCode: {
+            200: function() {
+              // alert('message was successfully deleted.');
+            }
+          }
+        });
       }
     });
     $('div#trash').droppable('disable');
