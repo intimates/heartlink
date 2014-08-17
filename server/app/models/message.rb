@@ -5,6 +5,8 @@ class Message < ActiveRecord::Base
 
   after_create :calculate_pn_value
 
+  scope :today, lambda { where('sent_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day) }
+
   private
     def calculate_pn_value
       require 'MeCab' # FIXME: not here

@@ -6,7 +6,7 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
   before_action :cors_set_access_control_headers
 
   def index
-    @messages = Message.where(to_uid: @user.uid)
+    @messages = Message.today.where(to_uid: @user.uid)
     render json: @messages, status: :ok
   end
 
