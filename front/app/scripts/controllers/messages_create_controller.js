@@ -74,7 +74,7 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
                 "background-image": "none",
                 "display"         : "none",
               });
-              controller.transitionToRoute();
+              // controller.transitionToRoute(); // this makes bad UX
               controller.transitionToRoute('messages');
             }
           });
