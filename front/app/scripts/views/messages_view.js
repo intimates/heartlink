@@ -1,6 +1,24 @@
 Front.MessagesView = Ember.View.extend({
   isInitialized: false,
 
+  initTrash: function() {
+    $('div#trash').droppable({
+      tolerence: 'fit',
+      over: function() {
+        console.log('over');
+        $("div#trash").css({ "border-color": "rgba(255, 0, 48, 0.7)" });
+      },
+      out: function() {
+        $("div#trash").css({ "border-color": "rgba(0, 0, 0, 0.7)" });
+      },
+      drop: function() {
+        $("div#trash").css({ "border-color": "rgba(0, 0, 0, 0.7)" });
+        alert("DROP");
+      }
+    });
+    $('div#trash').droppable('disable');
+  },
+
   initMessages: function() {
     var self = this;
 
@@ -35,6 +53,49 @@ Front.MessagesView = Ember.View.extend({
             "background-position": "center top"
           });
         }
+
+        $(this).data("position-left", $(this).position().left);
+        $(this).data("position-top", $(this).position().top);
+      }
+    });
+
+    // Drag
+    $("div[id^='message']").draggable({
+      start: function() {
+        $(this).css({"z-index": 5});
+
+        setTimeout(function(){
+          $("div#trash").not(":animated").animate({
+            "height"         : 200 + "px",
+            "width"          : 200 + "px",
+            "border-radius"  : 102 + "px"
+          }, {
+            duration: 300, easing: "easeOutCubic",
+            complete: function() {
+              $('div#trash').droppable('enable');
+            }
+          });
+        }, 300);
+      },
+
+      stop: function() {
+        $(this).css({"z-index": 2});
+
+        $("div#trash").animate({
+          "height": 40 + "px",
+          "width" : 40 + "px",
+          "border-radius" : 23 + "px"
+        }, {
+          duration: 300, easing: "easeOutCubic"
+        });
+
+        $(this).animate({
+          "left": $(this).data('position-left'),
+          "top" : $(this).data('position-top'),
+          "z-index": 1
+        }, {
+          duration: 300, easing: "easeOutBack",
+        });
       }
     });
   },
@@ -53,6 +114,7 @@ Front.MessagesView = Ember.View.extend({
     }
     this.isInitialized = true;
 
+    this.initTrash();
     this.initMessages();
   }
 });
