@@ -37,6 +37,13 @@ Front.ApplicationController = Ember.Controller.extend({
         statusCode: {
           201: function() {
             // alert('user was successfully created.');
+            // FIXME: This is not recommended way
+            //   http://api.jquery.com/jQuery.ajaxSetup/
+            Ember.$.ajaxSetup({
+              headers: {
+                'Authorization': 'Token token=' + currentUser.uid
+              }
+            });
             self.transitionToRoute('messages');
           }
         }
