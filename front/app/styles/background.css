@@ -98,6 +98,7 @@ div.post_card
 	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
 	border: 2px solid rgba(0, 0, 0, 0.8);
 	display: none;
+	font-size: 13px;
 	height: 10%;
 	margin: 3px;
 	position: absolute;
@@ -149,6 +150,7 @@ div.user_select:last-child
 
 div.post_operation
 {
+	margin-top: 5px;
 	text-align: center;
 }
 
