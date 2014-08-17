@@ -17,6 +17,23 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
       this.set('toUid', user.get('uid'));
     },
 
+    cancel: function() {
+      var self = this;
+
+      $("div#post_card").animate({
+        "opacity": 0.0
+      }, {
+        duration: 500, easing: "easeOutCubic",
+        step: function(now){
+          $(this).css("top", "+="+ now * 10 +"px");
+        },
+        complete: function(){
+          $(this).css({ "display": "none" });
+          self.transitionToRoute('messages');
+        }
+      });
+    },
+
     send: function() {
       var toUid = this.get('toUid');
       // TODO: set fromUid from current user (using session)

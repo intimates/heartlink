@@ -1,13 +1,16 @@
-<h1>Compose</h1>
+<div id="post_card" class="post_card">
+  <div id="post_card_face">
+    {{input id="post_card_to" class="post_card_to" type="text" placeholder="宛先" value=searchTerm}}
+    <div id="user_suggest" class="user_suggest">
+      {{#each filteredUsers}}
+      <div {{action 'setRecipient' this}} class="user_select"></div>
+      {{/each}}
+    </div>
 
-{{input type="text" placeholder="宛先" value=searchTerm}}
-
-<ul>
-  {{#each filteredUsers}}
-  <li {{action 'setRecipient' this}}>{{this.name}}</li>
-  {{/each}}
-</ul>
-
-{{textarea placeholder="Say something nice" value=messageBody}}
-
-<button {{action 'send'}}>送信</button>
+    {{textarea placeholder="Say something nice" value=messageBody id="post_card_body" class="post_card_body" cols=40 rows=8}}
+    <div class="post_operation">
+      <span {{action 'cancel'}} id="post_cancel" class="post_cancel">キャンセル</span>
+      <span {{action 'send'}} id="post_submit" class="post_submit">　送信　</span>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,10 @@ Front.MessagesController = Ember.ObjectController.extend({
       // fire GET request and set opened_at on server
       message.reload();
       this.transitionToRoute('message', message);
+    },
+
+    openComposer: function() {
+      this.transitionToRoute('messages.create');
     }
   }
 });
