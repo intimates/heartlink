@@ -31,13 +31,12 @@ Front.MessagesView = Ember.View.extend({
         var message_id = $(ui.draggable).data('message');
         $(ui.draggable).css({ display: 'none' });
 
+        var app = self.get('controller.controllers.application');
         // FIXME: copy of deleteRecord action
         $.ajax({
-          url: 'http://localhost:3000/api/v1/messages/' + message_id,
+          url: app.ajaxRoot + 'messages/' + message_id,
           type: 'delete',
-          headers: {
-            Authorization: 'Token token=688784467878364'
-          },
+          headers: app.authHeader(),
           statusCode: {
             200: function() {
               // alert('message was successfully deleted.');

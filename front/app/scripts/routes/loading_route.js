@@ -11,7 +11,7 @@ Front.LoadingRoute = Ember.Route.extend({
       FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
           app.setCurrentUser();
-          app.transitionToRoute('messages');
+          // app.transitionToRoute('messages');
         }
         else {
           app.transitionToRoute('login');

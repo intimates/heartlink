@@ -1,4 +1,6 @@
 Front.MessagesCreateController = Ember.ArrayController.extend({
+  needs: ['application'],
+
   searchTerm: "",
   toUid: "",
   messageBody: "",
@@ -38,9 +40,11 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
     },
 
     send: function() {
+      var app = this.get('controllers.application');
+      var controller = this;
+
       var toUid = this.get('toUid');
-      // TODO: set fromUid from current user (using session)
-      var fromUid = "688784467878364";
+      var fromUid = app.currentUser.uid;
       var body = this.get('messageBody');
 
       if (toUid === "") {
@@ -90,9 +94,8 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
       });
       */
 
-      var controller = this;
       $.ajax({
-        url: 'http://localhost:3000/api/v1/messages',
+        url: app.ajaxRoot + 'messages',
         type: 'post',
         data: {
           message: {
@@ -101,9 +104,7 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
             body: body
           }
         },
-        headers: {
-          Authorization: 'Token token=688784467878364'
-        },
+        headers: app.authHeader(),
         dataType: 'json',
         statusCode: {
           201: function() {

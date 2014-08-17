@@ -1,4 +1,6 @@
 Front.MessageController = Ember.ObjectController.extend({
+  needs: ['application'],
+
   actions: {
     deleteRecord: function(message) {
       // does not work, so jQuery for now
@@ -6,13 +8,12 @@ Front.MessageController = Ember.ObjectController.extend({
 
       message.deleteRecord();
       var controller = this;
+      var app = this.get('controllers.application');
 
       $.ajax({
-        url: 'http://localhost:3000/api/v1/messages/' + message.id,
+        url: app.ajaxRoot + 'messages/' + message.id,
         type: 'delete',
-        headers: {
-          Authorization: 'Token token=688784467878364'
-        },
+        headers: app.authHeader(),
         statusCode: {
           200: function() {
             alert('message was successfully deleted.');

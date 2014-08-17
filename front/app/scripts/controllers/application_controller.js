@@ -1,5 +1,9 @@
 Front.ApplicationController = Ember.Controller.extend({
   currentUser: null,
+  ajaxRoot: 'http://localhost:3000/api/v1/',
+  authHeader: function() {
+    return { Authorization: 'Token token=' + this.currentUser.uid };
+  },
 
   // http://stackoverflow.com/questions/8618464/how-to-wait-for-another-js-to-load-to-proceed-operation
   whenAvailable: function(name, callback) {
@@ -21,11 +25,11 @@ Front.ApplicationController = Ember.Controller.extend({
         name: response.name,
         uid: response.id
       };
-      Ember.set('Front.ApplicationController.currentUser', currentUser);
+      self.set('currentUser', currentUser);
 
       // create user
       $.ajax({
-        url: 'http://localhost:3000/api/v1/users',
+        url: self.ajaxRoot + 'users',
         type: 'post',
         data: {
           user: currentUser
@@ -33,6 +37,7 @@ Front.ApplicationController = Ember.Controller.extend({
         statusCode: {
           201: function() {
             // alert('user was successfully created.');
+            self.transitionToRoute('messages');
           }
         }
       });
