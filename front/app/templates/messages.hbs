@@ -3,6 +3,7 @@
 <div id="world" class="world">
   {{#each model}}
   <div class="message_bubble"
+    {{action openMessage this}}
     {{bind-attr
       id=this.elementId
       data-message=this.id
@@ -12,10 +13,13 @@
     <div {{bind-attr id=this.pnColorId}} class="pn_color"></div>
   </div>
   {{/each}}
+
+  <div id="curtain" class="curtain"></div>
+
+  <!-- message body -->
+  {{outlet}}
 </div>
 
 <!-- {{#each model}} -->
 <!-- <li {{action openMessage this}}>{{this.id}}</li> -->
 <!-- {{/each}} -->
-
-{{outlet}}

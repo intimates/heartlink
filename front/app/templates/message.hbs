@@ -1,21 +1,5 @@
-<h1>Message</h1>
-
-<table>
-  <tbody>
-    {{#each model.attributes}}
-    <tr>
-      <td>
-        <strong>{{this.key}}:</strong>
-      </td>
-      <td>
-        {{this.value}}
-      </td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{#link-to 'message.edit' model}}Change{{/link-to}}
-<button {{action 'deleteRecord' model}}>Delete</button>
-
-{{outlet}}
+<div id="message_body" class="message_body">
+  <p id="message_body_text" class="message_body_text">
+    {{model.body}}
+  </p>
+</div>
