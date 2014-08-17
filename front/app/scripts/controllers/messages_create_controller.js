@@ -53,6 +53,34 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
         return;
       }
 
+      $("div#post_card_face").animate({
+        opacity: 0.0
+      }, {
+        duration: 300, easing: "easeOutCubic",
+        step: function(now){
+          $(this).css("top", "+="+ now * 10 +"px");
+        },
+        complete: function(){
+          $("div#post_card").css({
+            "background-image": "-webkit-image-set(url('img/send_message@x2.gif') 2x)"
+          }).delay(300).animate({
+            "top"    : "-=100px",
+            "opacity": 0.0
+          }, {
+            duration: 300, easing: "easeInBack",
+            complete: function(){
+              $(this).css({
+                "opacity"         : 0.0,
+                "background-image": "none",
+                "display"         : "none",
+              });
+              controller.transitionToRoute();
+              controller.transitionToRoute('messages');
+            }
+          });
+        }
+      });
+
       // Does not work... so use jQuery for now
       /*
       this.store.createRecord('message', {
@@ -79,11 +107,11 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
         dataType: 'json',
         statusCode: {
           201: function() {
-            alert('message was successfully sent.');
+            // alert('message was successfully sent.');
 
             // reload messages by transitions (there should be a better way)
-            controller.transitionToRoute();
-            controller.transitionToRoute('messages');
+            // controller.transitionToRoute();
+            // controller.transitionToRoute('messages');
           }
         }
       });
