@@ -24,6 +24,7 @@ Front.MessagesCreateView = Ember.View.extend({
   },
 
   didInsertElement: function() {
+    var self = this;
     $("div#post_card").css({
       "display": "block",
       "opacity": 0.0,
@@ -45,6 +46,11 @@ Front.MessagesCreateView = Ember.View.extend({
         "display": "block",
         "width"  : $("input#post_card_to").width() + 17 + "px"
       });
+    });
+
+    $("input#post_card_to").focusout(function(){
+      // FIXME: setRecipient action does not fire without setTimeout
+      setTimeout(function() { $("div#user_suggest").hide(); }, 1000);
     });
 
     this.open_curtain();
