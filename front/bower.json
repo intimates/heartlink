@@ -14,6 +14,7 @@
     "perfect-scrollbar": "~0.4.11",
     "jquery-ui": "~1.11.1",
     "moment": "~2.8.1",
-    "jqueryui-touch-punch": "*"
+    "jqueryui-touch-punch": "*",
+    "iscroll": "~5.1.2"
   }
 }

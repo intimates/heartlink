@@ -1,6 +1,17 @@
 Front.MessagesView = Ember.View.extend({
   isInitialized: false,
 
+  initScroll: function() {
+    var app = self.get('controller.controllers.application');
+    app.whenAvailable('IScroll', function() {
+      var myScroll = new IScroll('#scrollAnchor');
+      myScroll.on('scrollEnd', function () {
+        alert(this);
+        console.log(this);
+      });
+    });
+  },
+
   make_environment: function() {
     var doc_size = {height: $(document).height(), width: $(document).width()};
     $("img#st0").css({left: "20px" , top: "60px"});
@@ -166,6 +177,8 @@ Front.MessagesView = Ember.View.extend({
     }
     this.isInitialized = true;
 
+    // TODO: make it work
+    // this.initScroll();
     this.initTrash();
     this.initMessages();
     this.make_environment();
