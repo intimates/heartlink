@@ -1,5 +1,8 @@
 Front.ApplicationRoute = Ember.Route.extend({
   beforeModel: function(transition) {
+    // preload loading animation
+    jQuery("<img>").attr("src", "./images/logo_animation@x2.gif");
+
     var currentUser = Ember.get('Front.ApplicationController.currentUser');
     if (currentUser === undefined) {
       this.transitionTo('loading');
