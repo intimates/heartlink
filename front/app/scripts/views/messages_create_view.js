@@ -1,4 +1,28 @@
 Front.MessagesCreateView = Ember.View.extend({
+  // FIXME: duplicate code
+  open_curtain: function() {
+    $("div#curtain").css({
+      display: "block",
+      opacity: 0.0
+    }).animate({
+      opacity: 1.0
+    }, {
+      duration: 500, easing: "easeOutCubic"
+    });
+  },
+  close_curtain: function() {
+    $("div#curtain").animate({
+      opacity: 0.0
+    }, {
+      duration: 500, easing: "easeOutCubic",
+      complete: function(){
+        $(this).css({
+          display: "none",
+        });
+      }
+    });
+  },
+
   didInsertElement: function() {
     $("div#post_card").css({
       "display": "block",
@@ -22,5 +46,12 @@ Front.MessagesCreateView = Ember.View.extend({
         "width"  : $("input#post_card_to").width() + 8 + "px"
       });
     });
+
+    this.open_curtain();
+  },
+
+  willDestroyElement: function() {
+    this.close_curtain();
   }
+
 });
