@@ -2,7 +2,7 @@ Front.MessagesView = Ember.View.extend({
   isInitialized: false,
 
   initScroll: function() {
-    var app = self.get('controller.controllers.application');
+    var app = this.get('controller.controllers.application');
     app.whenAvailable('IScroll', function() {
       var myScroll = new IScroll('#scrollAnchor');
       myScroll.on('scrollEnd', function () {
