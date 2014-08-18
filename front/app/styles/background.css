@@ -174,3 +174,8 @@ span.post_submit
 	margin: 3px;
 	padding:4px 2px 2px 2px;
 }
+
+img.env_images
+{
+	position: absolute;
+}

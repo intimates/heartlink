@@ -2,6 +2,7 @@ Front.MessagesView = Ember.View.extend({
   isInitialized: false,
 
   make_environment: function() {
+    var doc_size = {height: $(document).height(), width: $(document).width()};
     $("img#st0").css({left: "20px" , top: "60px"});
     $("img#st1").css({left: "40px" , top: "40px"});
     $("img#st2").css({left: "70px" , top: "20px"});
@@ -12,6 +13,10 @@ Front.MessagesView = Ember.View.extend({
     $("img#st7").css({left: "240px" , top: "20px"});
     $("img#st8").css({left: "280px" , top: "30px"});
     $("img#st9").css({left: "300px", top: "60px"});
+    $("img#env_sun").css({left: doc_size.width * 0.1, top: doc_size.height * 0.20});
+    $("img#env_moon").css({left: doc_size.width * 0.2, top: doc_size.height * 0.93});
+    $("img#env_bird1").css({left: doc_size.width * 0.75, top: doc_size.height * 0.45});
+    $("img#env_bird2").css({left: doc_size.width * 0.85, top: doc_size.height * 0.46});
   },
 
   initTrash: function() {
