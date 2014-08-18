@@ -69,16 +69,7 @@ Front.MessageView = Ember.View.extend({
   },
 
   close_curtain: function() {
-    $("div#curtain").animate({
-      opacity: 0.0
-    }, {
-      duration: 500, easing: "easeOutCubic",
-      complete: function(){
-        $(this).css({
-          display: "none",
-        });
-      }
-    });
+    $('div#curtain').hide();
   },
 
   open_curtain: function() {
