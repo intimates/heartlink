@@ -13,11 +13,16 @@ class Api::V1::UsersController < Api::V1::ApplicationController
   end
 
   def create
+    new_user = false
     @user = User.find_by(uid: user_params['uid'])
-    @user ||= User.new(user_params.merge({
-      provider: 'facebook'
-    }))
+    unless @user
+      @user = User.new(user_params.merge({
+        provider: 'facebook'
+      }))
+      new_user = true
+    end
     if @user.save
+      Message.generate_default_messages_for(@user) if new_user
       render text: 'user successfully created.', status: :created
     else
       render json: @user.errors, status: :unprocessable_entity

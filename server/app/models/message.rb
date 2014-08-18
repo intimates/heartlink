@@ -7,6 +7,39 @@ class Message < ActiveRecord::Base
 
   scope :today, lambda { where('sent_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day) }
 
+  def self.generate_default_messages_for(user)
+    messages = [
+      {
+        body: 'heartlinkへようこそ！',
+        sent_time: '08:00',
+        pn_value: 0
+      },
+      {
+        body: 'これはネガティブなメッセージです',
+        sent_time: '10:00',
+        pn_value: -1
+      },
+      {
+        body: 'これはポジティブなメッセージです',
+        sent_time: '10:00',
+        pn_value: 1
+      },
+      {
+        body: 'メッセージをゴミ箱にドラッグして消してみましょう',
+        sent_time: '12:00',
+        pn_value: 0
+      },
+    ]
+
+    messages.each do |data|
+      data[:to_uid] = user.uid
+      data[:sent_at] = Time.parse(data[:sent_time])
+      data.reject! { |k, v| k == :sent_time }
+      message = Message.create(data)
+      message.update_attributes(pn_value: data[:pn_value])
+    end
+  end
+
   private
     def calculate_pn_value
       require 'MeCab' # FIXME: not here
