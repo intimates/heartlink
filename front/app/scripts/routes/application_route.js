@@ -4,5 +4,12 @@ Front.ApplicationRoute = Ember.Route.extend({
     if (currentUser === undefined) {
       this.transitionTo('loading');
     }
+
+    jQuery("<img>").attr("src", "./images/send_message@x2.gif");
+    jQuery("<img>").attr("src", "./images/mail_white_opened@x2.png");
+    jQuery("<img>").attr("src", "./images/mail_black@x2.gif");
+    jQuery("<img>").attr("src", "./images/mail_white@x2.gif");
+    jQuery("<img>").attr("src", "./images/stamp@x2.png");
+    jQuery("<img>").attr("src", "./images/letter1.png");
   }
 });
