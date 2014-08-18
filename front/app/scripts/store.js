@@ -1,6 +1,6 @@
 // Front.ApplicationAdapter = DS.FixtureAdapter;
 
 Front.ApplicationAdapter = DS.RESTAdapter.extend({
-  host: 'http://localhost:3000',
+  host: 'http://pigeon.ngrok.com',
   namespace: 'api/v1',
 });

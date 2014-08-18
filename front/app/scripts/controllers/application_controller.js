@@ -1,6 +1,6 @@
 Front.ApplicationController = Ember.Controller.extend({
   currentUser: null,
-  ajaxRoot: 'http://localhost:3000/api/v1/',
+  ajaxRoot: 'http://pigeon.ngrok.com/api/v1/',
   authHeader: function() {
     return { Authorization: 'Token token=' + this.currentUser.uid };
   },
