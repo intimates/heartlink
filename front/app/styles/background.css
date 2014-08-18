@@ -8,7 +8,7 @@ div.world
 		to(rgba(25, 25, 112, 1)));
 	height:1920px;
 	left:0px;
-	position:absolute;
+	position:relative;
 	top:0px;
 	width:100%;
 	/*, rgba(156,255,254,1), , rgba(17,104,153,1)*/
