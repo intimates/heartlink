@@ -3,14 +3,15 @@
     {{input id="post_card_to" class="post_card_to" type="text" placeholder="宛先" value=searchTerm}}
     <div id="user_suggest" class="user_suggest">
       {{#each filteredUsers}}
-      <div {{action 'setRecipient' this}} class="user_select">{{this.name}}</div>
+      <!-- <div {{bind-attr data-uid=this.uid data-name=this.name}} class="user_select">{{this.name}}</div> -->
+      <button {{action 'setRecipient' this}} class="user_select">{{this.name}}</button>
       {{/each}}
     </div>
 
-    {{textarea placeholder="Say something nice" value=messageBody id="post_card_body" class="post_card_body" cols=40 rows=8}}
+    {{textarea placeholder="Say something nice" value=messageBody id="post_card_body" class="post_card_body" cols=40 rows=7}}
     <div class="post_operation">
-      <span {{action 'cancel'}} id="post_cancel" class="post_cancel">キャンセル</span>
-      <span {{action 'send'}} id="post_submit" class="post_submit">　送信　</span>
+      <button {{action 'cancel'}} id="post_cancel" class="post_cancel">キャンセル</span>
+      <button {{action 'send'}} id="post_submit" class="post_submit">　送信　</span>
     </div>
   </div>
 </div>
