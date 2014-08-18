@@ -1,3 +1,31 @@
-<h1>Login</h1>
+<div id="login_world" class="login_world">
+  <div id="login_card" class="login_card">
+    <div id="login_face" class="login_face">
+      <input type="field" onfocus="form_img_switch(this, 'm', 'f')" onblur="form_img_switch(this, 'm', 'b')" id="input_mail" class="login mail"><br/>
+      <input type="password" onfocus="form_img_switch(this, 'p', 'f')" onblur="form_img_switch(this, 'p', 'b')" id="input_pass" class="login pass"><br/>
+      <br/>
+      <span {{action 'login'}} id="login_submit" class="login_submit">　LOGIN　</span>
+    </div>
+  </div>
+  <img id="stamp" class="stamp" src="images/stamp@x2.png" width="100" />
 
-<button {{action 'login'}}>Login</button>
+  <div id="dummy_message1" data-message="1" data-pn_value="0.9" class="message_bubble">
+    <div id="dummy_color1" class="pn_color"></div>
+  </div>
+
+  <div id="dummy_message2" data-message="2" data-pn_value="0.2" class="message_bubble">
+    <div id="dummy_color2" class="pn_color"></div>
+  </div>
+
+  <div id="dummy_message3" data-message="3" data-pn_value="0.0" class="message_bubble">
+    <div id="dummy_color3" class="pn_color"></div>
+  </div>
+
+  <div id="dummy_message4" data-message="4" data-pn_value="-0.4" class="message_bubble">
+    <div id="dummy_color4" class="pn_color"></div>
+  </div>
+
+  <div id="dummy_message5" data-message="5" data-pn_value="-1.0" class="message_bubble">
+    <div id="dummy_color5" class="pn_color"></div>
+  </div>
+</div>
