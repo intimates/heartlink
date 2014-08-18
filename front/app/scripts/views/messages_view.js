@@ -75,12 +75,28 @@ Front.MessagesView = Ember.View.extend({
         });
 
         if($(this).data("unread")){
-          $(this).css({
-            "border-color": "rgba(255, 96, 37, 0.8)"
-          });
-          $("div#pn_color"+ msg_id).css({
-            "background-image": "-webkit-image-set(url('./images/mail_white@x2.gif') 2x)"
-          });
+          if(pn_value < 0) {
+            $(this).css({
+              "border-color": "rgba(255, 96, 37, 0.8)"
+            });
+            $("div#pn_color"+ msg_id).css({
+              "background-image": "-webkit-image-set(url('images/mail_black@x2.gif') 2x)"
+            });
+          } else if(0 < pn_value){
+            $(this).css({
+              "border-color": "rgba(255, 96, 37, 0.8)"
+            });
+            $("div#pn_color"+ msg_id).css({
+              "background-image": "-webkit-image-set(url('images/mail_white@x2.gif') 2x)"
+            });
+          } else {
+            $(this).css({
+              "border-color": "rgba(255, 96, 37, 0.8)"
+            });
+            $("div#pn_color"+ msg_id).css({
+              "background-image": "-webkit-image-set(url('images/mail_neutral@x2.gif') 2x)"
+            });
+          }
         } else {
           $("div#pn_color"+ msg_id).css({
             "background-image": "-webkit-image-set(url('./images/mail_white_opened@x2.png') 2x)",

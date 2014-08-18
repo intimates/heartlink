@@ -17,7 +17,7 @@ Front.ApplicationController = Ember.Controller.extend({
     }, interval);
   },
 
-  setCurrentUser: function() {
+  setCurrentUser: function(callback) {
     var self = this;
 
     FB.api('/me', function(response) {
@@ -44,7 +44,7 @@ Front.ApplicationController = Ember.Controller.extend({
                 'Authorization': 'Token token=' + currentUser.uid
               }
             });
-            self.transitionToRoute('messages');
+            callback();
           }
         }
       });
