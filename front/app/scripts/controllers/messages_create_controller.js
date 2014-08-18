@@ -6,10 +6,11 @@ Front.MessagesCreateController = Ember.ArrayController.extend({
   messageBody: "",
 
   filteredUsers: function() {
+    var app = this.get('controllers.application');
     var searchTerm = this.get('searchTerm');
     var regExp = new RegExp(searchTerm, 'i');
 
-    var filteredResults = this.filter(function(user) {
+    var filteredResults = app.get('allUsers').filter(function(user) {
       return regExp.test(user.get('name'));
     });
     return filteredResults;

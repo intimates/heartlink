@@ -1,5 +1,6 @@
 Front.ApplicationController = Ember.Controller.extend({
   currentUser: null,
+  allUsers: null,
   ajaxRoot: 'http://pigeon.ngrok.com/api/v1/',
   authHeader: function() {
     return { Authorization: 'Token token=' + this.currentUser.uid };
@@ -17,8 +18,15 @@ Front.ApplicationController = Ember.Controller.extend({
     }, interval);
   },
 
+  setAllUsers: function() {
+    this.set('allUsers', this.store.find('user'));
+  },
+
   setCurrentUser: function(callback) {
     var self = this;
+
+    // FIXME: not here
+    self.setAllUsers();
 
     FB.api('/me', function(response) {
       var currentUser = {
