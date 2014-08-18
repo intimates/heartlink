@@ -64,7 +64,7 @@ div.post
 	right: 15px;
 	margin: 0px;
 	position: fixed;
-	bottom: 25px;
+	bottom: 35px;
 	width: 40px;
 	z-index: 4;
 }
@@ -84,7 +84,7 @@ div.trash
 	left: 15px;
 	margin: 0px;
 	position: fixed;
-	bottom: 25px;
+	bottom: 35px;
 	width: 40px;
 	z-index: 4;
 }
