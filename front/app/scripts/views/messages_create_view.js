@@ -43,7 +43,7 @@ Front.MessagesCreateView = Ember.View.extend({
     $("input#post_card_to").focus(function(){
       $("div#user_suggest").css({
         "display": "block",
-        "width"  : $("input#post_card_to").width() + 8 + "px"
+        "width"  : $("input#post_card_to").width() + 17 + "px"
       });
     });
 
