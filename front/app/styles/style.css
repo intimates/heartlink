@@ -11,6 +11,7 @@ html, body {
 #guest-login {
 	font-size: 15px;
 	position: fixed;
-	bottom: 10px;
+	bottom: 20px;
 	left: 110px;
+	z-index: 100;
 }
