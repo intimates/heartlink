@@ -13,6 +13,6 @@ Front.ApplicationRoute = Ember.Route.extend({
     jQuery("<img>").attr("src", "./images/mail_black@x2.gif");
     jQuery("<img>").attr("src", "./images/mail_white@x2.gif");
     jQuery("<img>").attr("src", "./images/stamp@x2.png");
-    jQuery("<img>").attr("src", "./images/letter1.png");
+    jQuery("<img>").attr("src", "./images/letter1.jpg");
   }
 });
