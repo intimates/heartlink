@@ -137,7 +137,7 @@ input.post_card_to
 {
 	border: 1px solid rgba(0, 0, 0, 0.7);
 	margin: 2px 0px 0px 3px;
-	width: 93%;
+	width: 92%;
 	height: 20px;
 }
 
@@ -162,7 +162,7 @@ button.user_select
 	background-color: rgba(255, 255, 255, 1);
 	height: 30px;
 	line-height: 30px;
-	width: 100%;
+	width: 99%;
 	padding-left: 1em;
 }
 button.user_select:hover
