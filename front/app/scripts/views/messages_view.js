@@ -111,8 +111,6 @@ Front.MessagesView = Ember.View.extend({
 
     // Drag
     $("div[id^='message']").draggable({
-      refreshPositions: true,
-
       start: function() {
         $(this).css({"z-index": 5});
 
@@ -125,6 +123,7 @@ Front.MessagesView = Ember.View.extend({
             duration: 300, easing: "easeOutCubic",
             complete: function() {
               $('div#trash').droppable('enable');
+              jQuery.ui.ddmanager.prepareOffsets(jQuery.ui.ddmanager.current, null);
             }
           });
         }, 300);
