@@ -7,3 +7,10 @@ html, body {
 	text-align: center;
 	margin-top: 200px;
 }
+
+#guest-login {
+	font-size: 15px;
+	position: fixed;
+	bottom: 10px;
+	left: 110px;
+}

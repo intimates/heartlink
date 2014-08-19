@@ -23,6 +23,43 @@ Front.ApplicationController = Ember.Controller.extend({
     this.set('allUsers', this.store.find('user'));
   },
 
+  // FIXME: duplicate code
+  setGuestUser: function(callback) {
+    var self = this;
+
+    // FIXME: not here
+    self.setAllUsers();
+
+    // create user
+    var currentUser = {
+      name: 'GUEST',
+      uid: 1
+    };
+
+    self.set('currentUser', currentUser);
+
+    $.ajax({
+      url: self.ajaxRoot + 'users',
+      type: 'post',
+      data: {
+        user: currentUser
+      },
+      statusCode: {
+        201: function() {
+          // alert('user was successfully created.');
+          // FIXME: This is not recommended way
+          //   http://api.jquery.com/jQuery.ajaxSetup/
+          Ember.$.ajaxSetup({
+            headers: {
+              'Authorization': 'Token token=' + currentUser.uid
+            }
+          });
+          callback();
+        }
+      }
+    });
+  },
+
   setCurrentUser: function(callback) {
     var self = this;
 
