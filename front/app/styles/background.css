@@ -61,6 +61,26 @@ div.post
 	border-radius: 23px;
 	cursor: pointer;
 	height: 40px;
+	margin: 0px;
+	position: fixed;
+	bottom: 35px;
+	width: 40px;
+	left: 50%;
+	margin-left: -20px;
+	z-index: 4;
+}
+
+div.refresh
+{
+	background-color: rgba(42, 129, 204, 0.7);
+	background-image: -webkit-image-set(url("../images/refresh.png") 2x);
+	background-position: center;
+	background-repeat: no-repeat;
+	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+	border: 3px solid rgba(0, 0, 0, 0.7);
+	border-radius: 23px;
+	cursor: pointer;
+	height: 40px;
 	right: 15px;
 	margin: 0px;
 	position: fixed;
@@ -71,7 +91,7 @@ div.post
 
 div.trash
 {
-	background-color: rgba(204, 129, 42, 0.9);
+	background-color: rgba(204, 129, 42, 0.8);
 	background-image: -webkit-image-set(url("../images/message_trash@xM.png") 2x);
 	background-position: center;
 	background-repeat: no-repeat;
