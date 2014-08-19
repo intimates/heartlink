@@ -11,23 +11,33 @@ class Message < ActiveRecord::Base
     messages = [
       {
         body: 'heartlinkへようこそ！',
-        sent_time: '08:00',
+        sent_time: '06:00',
         pn_value: 0
       },
       {
         body: 'これはネガティブなメッセージです',
-        sent_time: '10:00',
+        sent_time: '08:00',
         pn_value: -1
       },
       {
         body: 'これはポジティブなメッセージです',
-        sent_time: '10:00',
+        sent_time: '08:00',
         pn_value: 1
       },
       {
         body: 'メッセージをゴミ箱にドラッグして消してみましょう',
-        sent_time: '12:00',
+        sent_time: '10:00',
         pn_value: 0
+      },
+      {
+        body: '自分にメッセージを送って遊んでみましょう',
+        sent_time: '03:00',
+        pn_value: -0.8
+      },
+      {
+        body: '新規メッセージは緑ボタンをタップ',
+        sent_time: '18:20',
+        pn_value: 0.7
       },
     ]
 
