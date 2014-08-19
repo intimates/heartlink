@@ -31,7 +31,7 @@ div.stars
 	height: 40px;
 	left: 0px;
 	position: absolute;
-	top: 71%;
+	top: 73%;
 	width: 100%;
 	z-index: 0;
 }
@@ -65,7 +65,7 @@ div.post
 	position: fixed;
 	bottom: 35px;
 	width: 40px;
-	left: 50%;
+	left: 49%;
 	margin-left: -20px;
 	z-index: 4;
 }
