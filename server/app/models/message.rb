@@ -16,12 +16,12 @@ class Message < ActiveRecord::Base
       },
       {
         body: 'これはネガティブなメッセージです',
-        sent_time: '08:00',
+        sent_time: '08:30',
         pn_value: -1
       },
       {
         body: 'これはポジティブなメッセージです',
-        sent_time: '08:00',
+        sent_time: '07:30',
         pn_value: 1
       },
       {
