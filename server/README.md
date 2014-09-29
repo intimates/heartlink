@@ -1,10 +1,19 @@
 Pigeon
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+## Development Setup
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+### DB Setup
+
+1. start postgres daemon
+2. create role (user) named pigeon
+  ```
+  $ psql -d postgres
+  postgres=# create role pigeon login createdb;
+  postgres=# \q
+  ```
+3. `rake db:create`
+4. `rake db:migrate`
 
 Problems? Issues?
 -----------
