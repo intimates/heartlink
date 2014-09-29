@@ -1,3 +1,5 @@
+local_gems/mecab-ruby-0.996/Makefile
+
 #----------------------------------------------------------------------------
 # Ignore these files when commiting to a git repository.
 #
