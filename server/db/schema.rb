@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20140814025205) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "facebook_access_token"
   end
 
 end
