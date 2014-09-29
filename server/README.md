@@ -3,6 +3,20 @@ Pigeon
 
 ## Development Setup
 
+### Install gems
+
+```
+$ bundle install
+```
+
+### Build and install MeCab
+
+```
+$ cd local_gems/mecab-ruby-0.996
+$ ruby extconf.rb
+$ make install
+```
+
 ### DB Setup
 
 1. start postgres daemon
