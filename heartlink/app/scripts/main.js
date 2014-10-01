@@ -1,1 +1,6 @@
-console.log('\'Allo \'Allo!');
+var vueExample = new Vue({
+  el: '#vue-example',
+  data: {
+    title: 'heartlink'
+  }
+});
