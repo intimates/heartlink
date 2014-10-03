@@ -6,8 +6,14 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
   before_action :cors_set_access_control_headers
 
   def index
-    @messages = Message.today.where(to_uid: @user.uid)
-    render json: @messages, status: :ok
+    messages = Message.today.where(to_uid: @user.uid)
+
+    # FIXME: slow code, do this on SQL level (select except 'body' column)
+    messages = messages.as_json.map do |message|
+      message.reject { |k, v| k == 'body' }
+    end
+
+    render json: messages, status: :ok
   end
 
   def sent
