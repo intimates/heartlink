@@ -20,13 +20,17 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container">
+    <div id="main" class="container">
       <div id="messages-container" class="jumbotron">
         <ul>
           <li v-repeat="messages">
-            ID: <span v-text="id"></span>
+            <span v-text="id" v-on="click: openMessage(id)"></span>
           </li>
         </ul>
+      </div>
+
+      <div v-if="message" v-with="message" id="message-content" class="jumbotron">
+        <p v-text="body"></p>
       </div>
     </div>
 
