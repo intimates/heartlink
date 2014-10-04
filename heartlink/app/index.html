@@ -31,6 +31,7 @@
 
       <div v-if="message" v-with="message" id="message-content" class="jumbotron">
         <p v-text="body"></p>
+        <button v-on="click: closeMessage">Close</button>
       </div>
     </div>
 

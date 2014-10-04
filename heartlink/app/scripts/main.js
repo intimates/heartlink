@@ -26,6 +26,10 @@
         jqxhr.done(function(data) {
           self.$data.message = data.message;
         });
+      },
+
+      closeMessage: function() {
+        this.$data.message = null;
       }
     },
 
