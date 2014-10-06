@@ -23,10 +23,9 @@
 
     <div id="main" class="container">
       <div id="messages-container" class="jumbotron">
-		  <div v-repeat="messages" v-on="click: openMessage(id)" class="message_bubble">
-			  <div class="pn_color" v-text="pn_value"></div>
-		  </div>
-        </ul>
+        <div v-repeat="messages" v-on="click: openMessage(id)" class="message_bubble">
+          <div class="pn_color" v-text="pn_value"></div>
+        </div>
       </div>
 
       <div v-if="message" v-with="message" id="message-content" class="jumbotron">
