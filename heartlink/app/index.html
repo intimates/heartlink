@@ -33,8 +33,28 @@
         <p v-text="body"></p>
         <button v-on="click: closeMessage">Close</button>
       </div>
-    </div>
 
+      <div v-component="message-form" class="jumbotron">
+        <form>
+          <div class="form-group">
+            <label for="userQuery">To:</label>
+            <input type="text" v-model="userQuery" id="userQuery" class="form-control" />
+            <select v-model="message.to_uid" id="recipient-select" class="form-control">
+              <option
+                v-repeat="recipientCandidates | filterBy userQuery in name"
+                v-attr="value:uid"
+                v-text="name">
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea v-model="message.body" row="3" class="form-control"></textarea>
+          </div>
+
+          <button v-on="click: sendMessage" type="button" class="btn btn-default">Send</button>
+        </form>
+      </div>
+    </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -66,6 +86,7 @@
     </script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/form.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
