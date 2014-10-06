@@ -31,6 +31,11 @@ $ make install
 
 ### Populate DB
 
+1. positive-negative dictionary (Japanese words)
+  ```
+  $ rake seeds:pn_jp_words
+  ```
+
 1. guest user with default messages
   ```
   $ rake seeds:user:guest
