@@ -29,6 +29,13 @@ $ make install
 3. `rake db:create`
 4. `rake db:migrate`
 
+### Populate DB
+
+1. guest user with default messages
+  ```
+  $ rake seeds:user:guest
+  ```
+
 Problems? Issues?
 -----------
 
