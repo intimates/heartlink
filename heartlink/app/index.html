@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/messages.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -22,10 +23,9 @@
 
     <div id="main" class="container">
       <div id="messages-container" class="jumbotron">
-        <ul>
-          <li v-repeat="messages">
-            <span v-text="id" v-on="click: openMessage(id)"></span>
-          </li>
+		  <div v-repeat="messages" v-on="click: openMessage(id)" class="message_bubble">
+			  <div class="pn_color" v-text="pn_value"></div>
+		  </div>
         </ul>
       </div>
 

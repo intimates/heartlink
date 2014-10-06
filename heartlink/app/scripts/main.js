@@ -12,7 +12,7 @@
     data: {
       message: null,
       messages: []
-    },
+  },
 
     methods: {
       openMessage: function(id) {
