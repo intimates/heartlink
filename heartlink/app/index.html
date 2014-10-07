@@ -24,7 +24,11 @@
     <div id="main" class="container">
       <div id="messages-container" class="jumbotron">
         <div v-repeat="messages" v-on="click: openMessage(id)" class="message_bubble">
+<<<<<<< HEAD
           <div class="pn_color" v-text="pn_value"></div>
+=======
+          <div class="pn_color" v-style="background-color: pn_rgba">{{ id }}</div>
+>>>>>>> messages_coloring
         </div>
       </div>
 

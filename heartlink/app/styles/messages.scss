@@ -2,17 +2,29 @@
 {
 	background-color: rgba(255, 255, 255, 0.7);
 	border: 3px solid rgba(0, 0, 0, 0.9);
+<<<<<<< HEAD
 	border-radius: 26px;
 	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
 	height: 50px;
 	position: absolute;
 	width: 50px;
+=======
+	border-radius: 28px;
+	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+	height: 56px;
+	position: absolute;
+	width: 56px;
+>>>>>>> messages_coloring
 	z-index: 2;
 }
 
 .pn_color
 {
+<<<<<<< HEAD
 	background-image: -webkit-image-set(url("img/mail_white@x1.png") 1x, url("img/mail_white@x2.png") 2x);
+=======
+	background-image: -webkit-image-set(url("images/mail_white@x1.png") 1x, url("images/mail_white@x2.png") 2x);
+>>>>>>> messages_coloring
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 26px;
