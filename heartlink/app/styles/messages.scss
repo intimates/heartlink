@@ -1,25 +1,25 @@
 .message_bubble
 {
-	background-color: rgba(255, 255, 255, 0.7);
-	border: 3px solid rgba(0, 0, 0, 0.9);
-	border-radius: 28px;
-	box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
-	height: 56px;
-	position: absolute;
-	width: 56px;
-	z-index: 2;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(0, 0, 0, 0.9);
+  border-radius: 28px;
+  box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+  height: 56px;
+  position: absolute;
+  width: 56px;
+  z-index: 2;
 }
 
 .pn_color
 {
-	background-image: -webkit-image-set(url("images/mail_white@x1.png") 1x, url("images/mail_white@x2.png") 2x);
-	background-position: center;
-	background-repeat: no-repeat;
-	border-radius: 26px;
-	height: 52px;
-	margin: -1px 0px 0px -1px;
-	position: absolute;
-	width: 52px;
-	z-index: 2;
+  background-image: -webkit-image-set(url("images/mail_white@x1.png") 1x, url("images/mail_white@x2.png") 2x);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 26px;
+  height: 52px;
+  margin: -1px 0px 0px -1px;
+  position: absolute;
+  width: 52px;
+  z-index: 2;
 }
 
