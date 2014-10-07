@@ -14,18 +14,6 @@
       messages: []
     },
     
-    computed: {
-      pn_rgba_c: {
-        $get: function(){
-          return 0;
-        },
-        
-        $set: function(){
-          this.pn_rgba = "rgba !!"
-        }
-      }
-    },
-    
     methods: {
       openMessage: function(id) {
         var self = this;
