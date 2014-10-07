@@ -13,7 +13,19 @@
       message: null,
       messages: []
     },
-
+    
+    computed: {
+      pn_rgba_c: {
+        $get: function(){
+          return 0;
+        },
+        
+        $set: function(){
+          this.pn_rgba = "rgba !!"
+        }
+      }
+    },
+    
     methods: {
       openMessage: function(id) {
         var self = this;
@@ -53,7 +65,6 @@
           var windowWidth = $(window).width();
           
           this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
-          console.log("x", this.id, this.x);
         });
       },
       
@@ -67,7 +78,6 @@
           var fixHour = 0 < (hour - 6) ? hour - 6 : 24 + (hour - 6);
           
           this.y = $(window).height() + fixHour;
-          console.log("y", this.id, this.y);
         });
       }
     },
