@@ -21,9 +21,9 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div id="main" class="container" v-style="height: height +'px'">
+    <div id="main" class="container">
       <div id="messages-container" class="jumbotron">
-        <div v-repeat="messages" v-on="click: openMessage(id)" class="message_bubble">
+        <div v-repeat="messages" v-on="click: openMessage(id)" v-attr="id: 'message'+ id" class="message_bubble">
           <div class="pn_color" v-text="pn_value"></div>
         </div>
       </div>
@@ -87,6 +87,7 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/form.js"></script>
         <script src="scripts/main.js"></script>
+        <script src="scripts/layout.js"></script>
         <!-- endbuild -->
 </body>
 </html>

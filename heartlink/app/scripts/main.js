@@ -11,8 +11,7 @@
     el: '#main',
     data: {
       message: null,
-      messages: [],
-      height: $(window).height() * 3
+      messages: []
     },
     
     methods: {
