@@ -48,15 +48,18 @@
       },
       
       setMessagesX: function(messages) {
+        var bubbleWidth = 0; // TODO: check bubble width.
+        var windowWidth = $(window).width();
+        
         $.each(messages, function() {
-          var bubbleWidth = 0; // TODO: check bubble size.
-          var windowWidth = $(window).width();
-          
           this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
         });
       },
       
       setMessagesY: function(messages) {
+        var bubbleHeight = 0; // TODO: check bubble height.
+        var windowHeight = $(window).height();
+      
         $.each(messages, function() {
           var dateObj = new Date(this.sent_at);
           var hour = dateObj.getHours();
@@ -65,7 +68,7 @@
           hour = parseFloat(hour) + parseFloat(minute / 60) + 0.01;
           var fixHour = 0 < (hour - 6) ? hour - 6 : 24 + (hour - 6);
           
-          this.y = $(window).height() + fixHour;
+          this.y = windowHeight / 25 * fixHour + bubbleHeight * 0.5;
         });
       }
     },
