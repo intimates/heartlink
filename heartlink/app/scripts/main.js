@@ -32,35 +32,26 @@
         this.$data.message = null;
       },
       
-      setPNrgba: function(messages) {
+      calcMessageParams: function(messages) {
         $.each(messages, function() {
-          var pnValue = this.pn_value;
-          var color;
-          if(0 < pnValue) {
-            color = 'rgba(190, 244, 4, '+ pnValue * 0.8 + ')';
-          } else if(pnValue < 0) {
-            color = 'rgba(112, 77, 157, '+ Math.abs(pnValue) * 0.8 + ')';
-          } else if(pnValue === 0) {
-            color = 'rgba(255, 255, 255, '+ pnValue * 0.8 + ')';
+          // Set pn_value
+          var r, g, b, a;
+          if(0 < this.pn_value) {
+            r = 190; g = 244; b =   4;
+          } else if(this.pn_value < 0) {
+            r = 112; g =  77; b = 157;
+          } else if(this.pn_value === 0) {
+            r = 255; g =  255; b = 255;
           }
-          this.pn_rgba = color;
-        });
-      },
-      
-      setMessagesX: function(messages) {
-        var bubbleWidth = 0; // TODO: check bubble width.
-        var windowWidth = $(window).width();
-        
-        $.each(messages, function() {
-          this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
-        });
-      },
-      
-      setMessagesY: function(messages) {
-        var bubbleHeight = 0; // TODO: check bubble height.
-        var windowHeight = $(window).height();
-      
-        $.each(messages, function() {
+          a = Math.abs(this.pn_value) * 0.8;
+          this.color = {r: r, g: g, b: b, a: a};
+          
+          // Set Message x, y
+          var bubbleWidth = 56;
+          var bubbleHeight = 56;
+          var windowWidth = $(window).width();
+          var windowHeight = $(window).height() * 3; // FIXME: get 'REAL' window height.
+          
           var dateObj = new Date(this.sent_at);
           var hour = dateObj.getHours();
           var minute = dateObj.getMinutes();
@@ -68,6 +59,7 @@
           hour = parseFloat(hour) + parseFloat(minute / 60) + 0.01;
           var fixHour = 0 < (hour - 6) ? hour - 6 : 24 + (hour - 6);
           
+          this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
           this.y = windowHeight / 25 * fixHour + bubbleHeight * 0.5;
         });
       }
@@ -83,9 +75,7 @@
 
       jqxhr.done(function(data) {
         self.$data.messages = data.messages;
-        self.setPNrgba(data.messages);
-        self.setMessagesX(data.messages);
-        self.setMessagesY(data.messages);
+        self.calcMessageParams(data.messages);
       });
     }
   });
