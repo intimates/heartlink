@@ -29,6 +29,8 @@
         jqxhr.done(function(data) {
           self.$data.message = data.message;
           $("#pn-"+ id).removeClass("pn-color neutral");
+          $("#pn-"+ id).removeClass("pn-color negative");
+          $("#pn-"+ id).removeClass("pn-color positive");
           $("#pn-"+ id).addClass("pn-color opened");
         });
         
