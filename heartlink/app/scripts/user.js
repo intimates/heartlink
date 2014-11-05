@@ -30,6 +30,7 @@ whenAvailable('FB', function() {
 });
 
 // TODO: any way to not pollute global scope?
+// FIXME: don't access global `user` variable inside user object
 var user = {
   uid: '',
 
