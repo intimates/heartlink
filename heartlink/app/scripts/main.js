@@ -6,6 +6,9 @@
   var ajaxHeaders = {
     Authorization: 'Token token=' + userUid
   };
+  var openedMessagePosition = {
+    x: 0, y: 0
+  };
 
   window.app = new Vue({
     el: '#main',
@@ -26,6 +29,12 @@
         jqxhr.done(function(data) {
           self.$data.message = data.message;
         });
+        
+        var msgobj = $("#message-"+ id);
+        openedMessagePosition = {
+          x: msgobj.offset().left + msgobj.width() * 0.5,
+          y: msgobj.offset().top + msgobj.height() * 0.5
+        };
       },
 
       closeMessage: function() {
@@ -77,6 +86,31 @@
         self.$data.messages = data.messages;
         self.calcMessageParams(data.messages);
       });
+    }
+  });
+  
+  Vue.effect('message-content', {
+    enter: function (el, insert, timeout) {
+        var scale = 0.8;
+        
+        $(el).css({
+          display: "block",
+          opacity: 0.0,
+          left   : openedMessagePosition.x + "px",
+          top    : openedMessagePosition.y + "px"
+        }).animate({
+          opacity: 1.0,
+          width  : $(window).width() * scale +"px",
+          height : $(window).width() * scale +"px",
+          left   : ($(window).width() - ($(window).width() * scale)) * 0.5 +"px",
+          top    : $(window).scrollTop() + ($(window).height() - ($(window).width() * scale)) * 0.5 +"px",
+          display: "block"
+        }, {duration: 400, easing: "easeOutBack"});
+        insert();
+    },
+    leave: function (el, remove, timeout) {
+        remove();
+        console.log("remove");
     }
   });
 })(jQuery, Vue);
