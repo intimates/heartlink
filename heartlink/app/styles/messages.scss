@@ -31,7 +31,6 @@
 
 .pn-color
 {
-  background-image: -webkit-image-set(url("/images/mail_white@x1.png") 1x, url("/images/mail_white@x2.png") 2x);
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 26px;
@@ -40,4 +39,21 @@
   position: absolute;
   width: 52px;
   z-index: 2;
+}
+.pn-color.neutral
+{
+  background-image: -webkit-image-set(url("/images/mail_white@x1.png") 1x, url("/images/mail_white@x2.png") 2x);
+}
+.pn-color.negative
+{
+  background-image: -webkit-image-set(url("/images/mail_black@x1.gif") 1x, url("/images/mail_black@x2.gif") 2x);
+}
+.pn-color.positive
+{
+  background-image: -webkit-image-set(url("/images/mail_white@x1.gif") 1x, url("/images/mail_white@x2.gif") 2x);
+}
+.pn-color.opened
+{
+  background-image: -webkit-image-set(url("/images/mail_white_opened@x1.png") 1x, url("/images/mail_white_opened@x2.png") 2x);
+  background-position: center top;
 }

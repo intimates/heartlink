@@ -28,6 +28,10 @@
 
         jqxhr.done(function(data) {
           self.$data.message = data.message;
+          $("#pn-"+ id).removeClass("pn-color neutral");
+          $("#pn-"+ id).removeClass("pn-color negative");
+          $("#pn-"+ id).removeClass("pn-color positive");
+          $("#pn-"+ id).addClass("pn-color opened");
         });
         
         var msgobj = $("#message-"+ id);
@@ -70,6 +74,15 @@
 
           this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
           this.y = windowHeight / 25 * fixHour + bubbleHeight * 0.5;
+          
+          if(this.opened_at == undefined)
+          {
+            this.imageClass = "neutral";
+            if(this.pn_value < 0) this.imageClass = "negative";
+              else if(0 < this.pn_value) this.imageClass = "positive";
+          } else {
+            this.imageClass = "opened";
+          }
         });
       }
     },
@@ -129,7 +142,6 @@
             remove();
           }
         });
-        console.log("remove");
     }
   });
 })(jQuery, Vue);
