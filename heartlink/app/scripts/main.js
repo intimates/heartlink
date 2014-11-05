@@ -103,13 +103,22 @@
           width  : $(window).width() * scale +"px",
           height : $(window).width() * scale +"px",
           left   : ($(window).width() - ($(window).width() * scale)) * 0.5 +"px",
-          top    : $(window).scrollTop() + ($(window).height() - ($(window).width() * scale)) * 0.5 +"px",
-          display: "block"
-        }, {duration: 400, easing: "easeOutBack"});
+          top    : $(window).scrollTop() + ($(window).height() - ($(window).width() * scale)) * 0.5 +"px"
+        }, {duration: 400, easing: "easeOutExpo"});
         insert();
     },
     leave: function (el, remove, timeout) {
-        remove();
+        $(el).animate({
+          opacity: 0.0,
+          width  : 0 +"px",
+          height : 0 +"px",
+          left   : openedMessagePosition.x +"px",
+          top    : openedMessagePosition.y +"px"
+        }, {duration: 400, easing: "easeOutQuad",
+          complete: function(){
+            remove();
+          }
+        });
         console.log("remove");
     }
   });
