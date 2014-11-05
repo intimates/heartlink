@@ -15,6 +15,10 @@
     },
 
     methods: {
+      login: function() {
+        user.login();
+      },
+
       openMessage: function(id) {
         var self = this;
 
@@ -67,6 +71,16 @@
 
     ready: function() {
       var self = this;
+
+      user.initialize(function(isAuthenticated) {
+        if (isAuthenticated) {
+          // TODO: show main view
+          alert('connected');
+        } else {
+          // TODO: show login form
+          alert('not connected');
+        }
+      });
 
       var jqxhr = $.ajax({
         url: apiUrlBase + '/messages',
