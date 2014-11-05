@@ -56,6 +56,11 @@
           <button v-on="click: sendMessage" type="button" class="btn btn-default">Send</button>
         </form>
       </div>
+
+      <div v-component="login-form" class="jumbotron">
+        <button v-on="click: login">Login with Facebook</button>
+        <button v-on="click: logout">Logout</button>
+      </div>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -87,10 +92,12 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/form.js"></script>
-        <script src="scripts/main.js"></script>
-        <script src="scripts/layout.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/user.js"></script>
+    <script src="scripts/login-form.js"></script>
+    <script src="scripts/message-form.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/layout.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

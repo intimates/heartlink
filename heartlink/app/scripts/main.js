@@ -13,7 +13,7 @@
       message: null,
       messages: []
     },
-    
+
     methods: {
       openMessage: function(id) {
         var self = this;
@@ -31,7 +31,7 @@
       closeMessage: function() {
         this.$data.message = null;
       },
-      
+
       calcMessageParams: function(messages) {
         $.each(messages, function() {
           // Set pn_value
@@ -45,20 +45,20 @@
           }
           a = Math.abs(this.pn_value) * 0.8;
           this.color = {r: r, g: g, b: b, a: a};
-          
+
           // Set Message x, y
           var bubbleWidth = 56;
           var bubbleHeight = 56;
           var windowWidth = $(window).width();
           var windowHeight = $(window).height() * 3; // FIXME: get 'REAL' window height.
-          
+
           var dateObj = new Date(this.sent_at);
           var hour = dateObj.getHours();
           var minute = dateObj.getMinutes();
-          
+
           hour = parseFloat(hour) + parseFloat(minute / 60) + 0.01;
           var fixHour = 0 < (hour - 6) ? hour - 6 : 24 + (hour - 6);
-          
+
           this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
           this.y = windowHeight / 25 * fixHour + bubbleHeight * 0.5;
         });
@@ -67,6 +67,16 @@
 
     ready: function() {
       var self = this;
+
+      user.initialize(function(isAuthenticated) {
+        if (isAuthenticated) {
+          // TODO: show main view
+          console.log('connected');
+        } else {
+          // TODO: show login form
+          console.log('not connected');
+        }
+      });
 
       var jqxhr = $.ajax({
         url: apiUrlBase + '/messages',
