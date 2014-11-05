@@ -22,7 +22,7 @@
     <![endif]-->
 
     <div id="main" class="container">
-      <div id="messages-container" class="jumbotron">
+      <div id="messages-container">
         <div v-repeat="messages" v-on="click: openMessage(id)" v-attr="id: 'message-'+ id" class="message-bubble" v-style="
           left: x +'px',
           top : y +'px'
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div v-if="message" v-with="message" id="message-content" class="jumbotron">
+      <div v-if="message" v-with="message" id="message-content" class="message-content"  v-effect="message-content">
         <p v-text="body"></p>
         <button v-on="click: closeMessage">Close</button>
       </div>
@@ -79,6 +79,7 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/jquery-easing/jquery.easing.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
