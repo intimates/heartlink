@@ -57,8 +57,9 @@
         </form>
       </div>
 
-      <div id="login-form" class="jumbotron">
+      <div v-component="login-form" class="jumbotron">
         <button v-on="click: login">Login with Facebook</button>
+        <button v-on="click: logout">Logout</button>
       </div>
     </div>
 
@@ -93,7 +94,8 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/user.js"></script>
-    <script src="scripts/form.js"></script>
+    <script src="scripts/login-form.js"></script>
+    <script src="scripts/message-form.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/layout.js"></script>
     <!-- endbuild -->

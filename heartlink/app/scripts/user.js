@@ -54,8 +54,15 @@ var user = {
   login: function() {
     FB.login(function(response) {
       if (response.status == 'connected') {
+        console.log('Logged in');
         user.setProperties(response.authResponse);
       }
+    });
+  },
+
+  logout: function() {
+    FB.logout(function(response) {
+      console.log('Logged out');
     });
   }
 };

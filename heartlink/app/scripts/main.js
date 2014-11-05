@@ -15,10 +15,6 @@
     },
 
     methods: {
-      login: function() {
-        user.login();
-      },
-
       openMessage: function(id) {
         var self = this;
 
@@ -75,10 +71,10 @@
       user.initialize(function(isAuthenticated) {
         if (isAuthenticated) {
           // TODO: show main view
-          alert('connected');
+          console.log('connected');
         } else {
           // TODO: show login form
-          alert('not connected');
+          console.log('not connected');
         }
       });
 
