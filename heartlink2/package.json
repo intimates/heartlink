@@ -1,0 +1,17 @@
+{
+  "name": "heartlink",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "watchify -v -e src/main.js -t partialify -o build/build.js"
+  },
+  "devDependencies": {
+    "insert-css": "^0.2.0",
+    "partialify": "^3.1.1",
+    "watchify": "^1.0.6"
+  },
+  "dependencies": {
+    "vue": "git://github.com/yyx990803/vue#next"
+  }
+}
