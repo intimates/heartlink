@@ -12,6 +12,7 @@
     "watchify": "^1.0.6"
   },
   "dependencies": {
+    "jquery-browserify": "^1.8.1",
     "vue": "git://github.com/yyx990803/vue#next"
   }
 }

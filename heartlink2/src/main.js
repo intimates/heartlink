@@ -13,8 +13,12 @@ new Vue({
   template: require('./app.html'),
   data: {
     user: user,
-    global: {
-      apiUrlBase: 'http://localhost:3000/api/v1'
+    appGlobals: {
+      apiUrlBase: 'http://localhost:3000/api/v1',
+      ajaxHeaders: {
+        // TODO: set valid token
+        Authorization: 'Token token=1'
+      }
     }
   }
 })
