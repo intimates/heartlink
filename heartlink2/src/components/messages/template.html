@@ -1,5 +1,10 @@
 <div id="messages-container">
-  <div v-repeat="messages">
+  <div v-repeat="messages" v-on="click: openMessage(id)">
     <div v-text="id"></div>
+  </div>
+
+  <div v-if="message" id="message-content" class="message-content" v-effect="message-content">
+    <p v-text="message.body"></p>
+    <button v-on="click: closeMessage">Close</button>
   </div>
 </div>

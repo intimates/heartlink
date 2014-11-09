@@ -8,7 +8,8 @@ module.exports = {
 
   data: function () {
     return {
-      messages: []
+      messages: [],
+      message: null
     }
   },
 
@@ -24,5 +25,25 @@ module.exports = {
     jqxhr.done(function(data) {
       self.$data.messages = data.messages;
     });
+  },
+
+  methods: {
+    openMessage: function(id) {
+      var self = this;
+      var global = self.$parent.$data.appGlobals;
+
+      var jqxhr = $.ajax({
+        url: global.apiUrlBase + '/messages/' + id,
+        headers: global.ajaxHeaders
+      });
+
+      jqxhr.done(function(data) {
+        self.$data.message = data.message;
+      });
+    },
+
+    closeMessage: function() {
+      this.$data.message = null;
+    },
   }
 }
