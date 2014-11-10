@@ -3,6 +3,8 @@
     <div v-text="id"></div>
   </div>
 
+  <button v-on="click: openMessageForm">Compose</button>
+
   <div v-if="message" id="message-content" class="message-content" v-effect="message-content">
     <p v-text="message.body"></p>
     <button v-on="click: closeMessage">Close</button>

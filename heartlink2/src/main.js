@@ -40,10 +40,6 @@ window.app = new Vue({
   methods: {
     changeView: function(view) {
       this.$data.currentView = view;
-    },
-
-    openMessageForm: function() {
-      this.changeView('message_form');
     }
   }
 })

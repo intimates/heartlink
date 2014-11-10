@@ -45,5 +45,9 @@ module.exports = {
     closeMessage: function() {
       this.$data.message = null;
     },
+
+    openMessageForm: function() {
+      this.changeView('message_form');
+    }
   }
 }
