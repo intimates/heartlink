@@ -1,5 +1,3 @@
-var FB = require('facebook');
-
 module.exports = {
   uid: '',
   isAuthenticated: false,

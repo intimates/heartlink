@@ -20,6 +20,15 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
+    <!-- FIXME: init facebook using browserify -->
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+      FB.init({
+        appId  : '743453079069715', // heartlink - Test1
+        version: 'v2.1' // use version 2.1
+      });
+    </script>
+
     <script src="build/build.js"></script>
   </body>
 </html>
