@@ -6,6 +6,7 @@ var user = require('./lib/user');
 window.app = new Vue({
   el: '#main',
   components: {
+    loading: require('./components/loading'),
     messages: require('./components/messages'),
     message_form: require('./components/message_form')
   },
@@ -13,7 +14,7 @@ window.app = new Vue({
   // require html enabled by the partialify transform
   template: require('./app.html'),
   data: {
-    currentView: 'messages',
+    currentView: 'loading',
     user: user,
     appGlobals: {
       apiUrlBase: 'http://localhost:3000/api/v1',
