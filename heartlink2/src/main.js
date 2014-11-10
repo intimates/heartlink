@@ -24,6 +24,11 @@ window.app = new Vue({
     }
   },
 
+  ready: function() {
+    this.$data.user.initialize(function(user) {
+    });
+  },
+
   methods: {
     openMessageForm: function() {
       this.$data.currentView = 'message_form';

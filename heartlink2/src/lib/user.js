@@ -1,4 +1,17 @@
+var FB = require('facebook');
+
 module.exports = {
-  // TODO: set valid uid
-  uid: '1',
+  uid: '',
+  isAuthenticated: false,
+  initialize: function(callback) {
+    var self = this;
+    FB.getLoginStatus(function(response) {
+      if (response.status == 'connected') {
+        self.isAuthenticated = true;
+        self.uid = response.authResponse.userID;
+        console.log(self);
+      }
+      callback(self);
+    });
+  }
 };
