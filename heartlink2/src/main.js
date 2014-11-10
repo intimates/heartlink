@@ -7,6 +7,7 @@ window.app = new Vue({
   el: '#main',
   components: {
     loading: require('./components/loading'),
+    login: require('./components/login'),
     messages: require('./components/messages'),
     message_form: require('./components/message_form')
   },
@@ -26,13 +27,23 @@ window.app = new Vue({
   },
 
   ready: function() {
+    var self = this;
     this.$data.user.initialize(function(user) {
+      if (!user.isAuthenticated) {
+        self.changeView('login');
+      } else {
+        self.changeView('messages');
+      }
     });
   },
 
   methods: {
-    openMessageForm: function() {
-      this.$data.currentView = 'message_form';
+    changeView: function(view) {
+      this.$data.currentView = view;
     },
+
+    openMessageForm: function() {
+      this.changeView('message_form');
+    }
   }
 })
