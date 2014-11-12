@@ -17,6 +17,7 @@
 
 1. `npm install -g browserify beefy`
 2. `npm install`
+3. `bower install` (I want to remove bower in the future...)
 
 ### Start writing code
 

@@ -38,25 +38,6 @@ module.exports = {
   },
 
   methods: {
-    openMessage: function(id) {
-      var self = this;
-      var parent = self.$parent;
-      var global = self.$parent.$data.appGlobals;
-
-      var jqxhr = $.ajax({
-        url: global.apiUrlBase + '/messages/' + id,
-        headers: parent.user.ajaxHeaders
-      });
-
-      jqxhr.done(function(data) {
-        self.$data.message = data.message;
-      });
-    },
-
-    closeMessage: function() {
-      this.$data.message = null;
-    },
-
     sendMessage: function() {
       var parent = this.$parent;
       var global = this.$parent.$data.appGlobals;
