@@ -1,7 +1,7 @@
-$(window).load(function() {
-  $("body").append('<div id="trash" class="trash"></div>');
+$(window).load(function() { // TODO: .load以外での呼び差しを検討
   var dragstartPosition = {x: 0, y: 0, z: 0};
   var trashSize = {width: $("#trash").css("width"), height: $("#trash").css("height"), borderRadius: $("#trash").css("border-radius")};
+  var scaledTrashSize = {width: "400px", height: "400px", borderRadius: "102px"};
   
   $("div[id^='message-']").draggable({
     containment: "body",
@@ -14,9 +14,9 @@ $(window).load(function() {
     
     drag: function(){
       $("#trash").not(":animated").animate({
-        "height"       : 200 + "px",
-        "width"        : 200 + "px",
-        "border-radius": 102 + "px"
+        "height"       : scaledTrashSize.height,
+        "width"        : scaledTrashSize.width,
+        "border-radius": scaledTrashSize.borderRadius
       }, {
         duration: 300, easing: "easeOutCubic"
       });
@@ -52,7 +52,7 @@ $(window).load(function() {
     },
     
     over: function(ev, ui) {
-      // TODO: make visual feedback
+      // TODO: make isual feedback
       //$("#trash").css({"border-color": "rgba(0, 0, 0, 0.7)"});
     }
   });
