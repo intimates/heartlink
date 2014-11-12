@@ -52,7 +52,7 @@ $(window).load(function() { // TODO: .load以外での呼び差しを検討
     },
     
     over: function(ev, ui) {
-      // TODO: make isual feedback
+      // TODO: make visual feedback
       //$("#trash").css({"border-color": "rgba(0, 0, 0, 0.7)"});
     }
   });
