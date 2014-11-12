@@ -1,7 +1,7 @@
 $(window).load(function() { // TODO: .load以外での呼び差しを検討
   var dragstartPosition = {x: 0, y: 0, z: 0};
   var trashSize = {width: $("#trash").css("width"), height: $("#trash").css("height"), borderRadius: $("#trash").css("border-radius")};
-  var scaledTrashSize = {width: "400px", height: "400px", borderRadius: "102px"};
+  var scaledTrashSize = {width: "200px", height: "200px", borderRadius: "102px"};
   
   $("div[id^='message-']").draggable({
     containment: "body",
