@@ -35,7 +35,7 @@
           $("#pn-"+ id).removeClass("pn-color positive");
           $("#pn-"+ id).addClass("pn-color opened");
         });
-        
+
         var msgobj = $("#message-"+ id);
         openedMessagePosition = {
           x: msgobj.offset().left + msgobj.width() * 0.5,
@@ -76,7 +76,7 @@
 
           this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
           this.y = windowHeight / 25 * fixHour + bubbleHeight * 0.5;
-          
+
           if(this.opened_at == undefined)
           {
             this.imageClass = "neutral";
@@ -113,11 +113,11 @@
       });
     }
   });
-  
+
   Vue.effect('message-content', {
     enter: function (el, insert, timeout) {
         var scale = 0.8;
-        
+
         $(el).css({
           display: "block",
           opacity: 0.0,

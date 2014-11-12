@@ -2,5 +2,7 @@
   "name": "heartlink",
   "private": true,
   "dependencies": {
+    "jquery-easing": "*",
+    "bootstrap": "~3.3.0"
   }
 }

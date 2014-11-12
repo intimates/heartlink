@@ -1,6 +1,8 @@
 require('insert-css')(require('./style.css'))
 
-var $ = require('jquery-browserify')
+var $ = require('jquery-browserify');
+// TODO: use jquery plugins the better way
+var easing = require('../../../bower_components/jquery-easing/jquery.easing.js');
 
 module.exports = {
   template: require('./template.html'),
@@ -42,6 +44,11 @@ module.exports = {
 
       jqxhr.done(function(data) {
         self.$data.message = data.message;
+        $("#pn-"+ id).removeClass("pn-color neutral");
+        $("#pn-"+ id).removeClass("pn-color negative");
+        $("#pn-"+ id).removeClass("pn-color positive");
+        $("#pn-"+ id).addClass("pn-color opened");
+        self.animateMessageOpen(data.message);
       });
     },
 
@@ -92,6 +99,42 @@ module.exports = {
           this.imageClass = "opened";
         }
       });
-    }
+    },
+
+    animateMessageOpen: function(message) {
+      var scale = 0.8;
+      var el = $("#message-content")
+      var msg = $("#message-" + message.id);
+      var x = msg.offset().left + el.width() * 0.5;
+      var y = msg.offset().top + el.height() * 0.5;
+      console.log(el);
+
+      $(el).css({
+        display: "block",
+        opacity: 0.0,
+        left   : x + "px",
+        top    : y + "px"
+      }).animate({
+        opacity: 1.0,
+        width  : $(window).width() * scale +"px",
+        height : $(window).width() * scale +"px",
+        left   : ($(window).width() - ($(window).width() * scale)) * 0.5 +"px",
+        top    : $(window).scrollTop() + ($(window).height() - ($(window).width() * scale)) * 0.5 +"px"
+      }, {duration: 400, easing: "easeOutExpo"});
+    },
+
+    animateMessageClose: function (el, remove, timeout) {
+        $(el).animate({
+          opacity: 0.0,
+          width  : 0 +"px",
+          height : 0 +"px",
+          left   : openedMessagePosition.x +"px",
+          top    : openedMessagePosition.y +"px"
+        }, {duration: 400, easing: "easeOutQuad",
+          complete: function(){
+            remove();
+          }
+        });
+    },
   }
 }
