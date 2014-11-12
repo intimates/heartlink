@@ -94,7 +94,8 @@ module.exports = {
         hour = parseFloat(hour) + parseFloat(minute / 60) + 0.01;
         var fixHour = 0 < (hour - 6) ? hour - 6 : 24 + (hour - 6);
 
-        this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth / 0.8) * 0.5 * this.pn_value;
+        var MESSAGE_BORDER_MODIFICATION_SCALE = 1.25;
+        this.x = (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth * MESSAGE_BORDER_MODIFICATION_SCALE) * 0.5 * this.pn_value;
         this.y = windowHeight / 25 * fixHour + bubbleHeight * 0.5;
 
         if(this.opened_at == undefined)
