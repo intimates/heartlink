@@ -62,3 +62,29 @@
   background-image: -webkit-image-set(url("/images/mail_white_opened@x1.png") 1x, url("/images/mail_white_opened@x2.png") 2x);
   background-position: center top;
 }
+
+
+.trash
+{
+  background-color: rgba(204, 129, 42, 0.9);
+  background-image: -webkit-image-set(url("/images/message_trash@xM.png") 2x);
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 8px 8px 10px rgba(0, 0,0,0.4);
+  background-size: 60%;
+  border: 3px solid rgba(0, 0, 0, 0.7);
+  border-radius: 23px;
+  cursor: pointer;
+  height: 40px;
+  left: 15px;
+  margin: 0px;
+  position: fixed;
+  bottom: 25px;
+  width: 40px;
+  z-index: 4;
+}
+
+.trash-hover
+{
+  border-color: "rgba(0, 0, 0, 0.7)";
+}

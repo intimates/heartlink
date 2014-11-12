@@ -3,9 +3,10 @@
     left: x +'px',
     top : y +'px'
     ">
-    <div  v-attr="id: 'pn-'+ id, class: 'pn-color '+ imageClass" v-style="background-color: 'rgba('+ color.r +', '+ color.g +', '+ color.b +', '+ color.a +')'"></div>
+    <div v-attr="id: 'pn-'+ id, class: 'pn-color '+ imageClass" v-style="background-color: 'rgba('+ color.r +', '+ color.g +', '+ color.b +', '+ color.a +')'"></div>
   </div>
 
+  <div id="trash" class="trash"></div>
   <button v-on="click: openMessageForm">Compose</button>
 
   <div v-if="message" id="message-content" class="message-content" v-transition="message-content-transition">

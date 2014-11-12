@@ -4,6 +4,8 @@ var Vue = require('vue');
 var $ = require('jquery-browserify');
 // TODO: use jquery plugins the better way
 require('../../../bower_components/jquery-easing/jquery.easing.js');
+require('../../../bower_components/jquery-ui/jquery-ui.js');
+require('../../../bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.js');
 
 module.exports = {
   template: require('./template.html'),
@@ -29,6 +31,9 @@ module.exports = {
     jqxhr.done(function(data) {
       self.$data.messages = data.messages;
       self.calcMessageParams(data.messages);
+      Vue.nextTick(function() {
+        self.setDraggable();
+      });
     });
 
     this.registerVueTransition();
@@ -148,6 +153,69 @@ module.exports = {
             easing: "easeOutQuad",
             complete: done
           });
+        }
+      });
+    },
+
+    setDraggable: function() {
+      var dragstartPosition = {x: 0, y: 0, z: 0};
+      var trashSize = {width: $("#trash").css("width"), height: $("#trash").css("height"), borderRadius: $("#trash").css("border-radius")};
+      var scaledTrashSize = {width: "200px", height: "200px", borderRadius: "102px"};
+
+      $("div[id^='message-']").draggable({
+        containment: "body",
+        scroll: false,
+
+        start: function(){
+          dragstartPosition = {
+            x: $(this).css('left'),
+            y: $(this).css('top'),
+            z: $(this).css("z-index")
+          };
+          $(this).css({'z-index': 5});
+        },
+
+        drag: function(){
+          $("#trash").not(":animated").animate({
+            "height"       : scaledTrashSize.height,
+            "width"        : scaledTrashSize.width,
+            "border-radius": scaledTrashSize.borderRadius
+          }, {
+            duration: 300, easing: "easeOutCubic"
+          });
+        },
+
+        stop: function(){
+          $(this).animate({
+            "left": dragstartPosition.x,
+            "top" : dragstartPosition.y,
+            "z-index": dragstartPosition.z,
+          }, {
+            duration: 300, easing: "easeOutBack",
+          });
+
+          $("#trash").animate({
+            "height"       : trashSize.height,
+            "width"        : trashSize.width,
+            "border-radius": trashSize.borderRadius
+          }, {
+            duration: 300, easing: "easeOutCubic"
+          });
+        }
+      });
+
+      $("#trash").droppable({
+        accept: "div[id^='message-']",
+        hoverClass: "trash-hover",
+
+        drop: function(ev, ui) {
+          ui.draggable.hide();
+          // TODO: delete message
+        },
+
+        over: function(ev, ui) {
+          // TODO: make visual feedback
+          //$("#trash").css({"border-color": "rgba(0, 0, 0, 0.7)"});
         }
       });
     }
