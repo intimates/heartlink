@@ -27,7 +27,7 @@ module.exports = {
 
     var jqxhr = $.ajax({
       url: global.apiUrlBase + '/users',
-      headers: global.ajaxHeaders
+      headers: parent.user.ajaxHeaders
     });
 
     jqxhr.done(function(data) {
@@ -40,11 +40,12 @@ module.exports = {
   methods: {
     openMessage: function(id) {
       var self = this;
+      var parent = self.$parent;
       var global = self.$parent.$data.appGlobals;
 
       var jqxhr = $.ajax({
         url: global.apiUrlBase + '/messages/' + id,
-        headers: global.ajaxHeaders
+        headers: parent.user.ajaxHeaders
       });
 
       jqxhr.done(function(data) {
@@ -57,6 +58,7 @@ module.exports = {
     },
 
     sendMessage: function() {
+      var parent = self.$parent;
       var global = this.$parent.$data.appGlobals;
 
       // FIXME: not cool
@@ -65,7 +67,7 @@ module.exports = {
       var jqxhr = $.ajax({
         type: 'POST',
         url: global.apiUrlBase + '/messages',
-        headers: global.ajaxHeaders,
+        headers: parent.user.ajaxHeaders,
         data: { message: this.$data.message }
       });
     }

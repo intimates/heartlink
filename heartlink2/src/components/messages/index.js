@@ -15,11 +15,12 @@ module.exports = {
 
   ready: function() {
     var self = this;
+    var user = self.$parent.user;
     var global = self.$parent.$data.appGlobals;
 
     var jqxhr = $.ajax({
       url: global.apiUrlBase + '/messages',
-      headers: global.ajaxHeaders
+      headers: user.ajaxHeaders
     });
 
     jqxhr.done(function(data) {
@@ -30,11 +31,12 @@ module.exports = {
   methods: {
     openMessage: function(id) {
       var self = this;
+      var user = self.$parent.user;
       var global = self.$parent.$data.appGlobals;
 
       var jqxhr = $.ajax({
         url: global.apiUrlBase + '/messages/' + id,
-        headers: global.ajaxHeaders
+        headers: user.ajaxHeaders
       });
 
       jqxhr.done(function(data) {

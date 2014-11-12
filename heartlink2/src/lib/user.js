@@ -1,14 +1,21 @@
 module.exports = {
   uid: '',
   isAuthenticated: false,
+  ajaxHeaders: {},
+
+  initializeWithAuthResponse: function(response) {
+    this.isAuthenticated = true;
+    this.uid = response.authResponse.userID;
+    this.ajaxHeaders = {
+      Authorization: 'Token token=' + this.uid
+    };
+  },
 
   initialize: function(callback) {
     var self = this;
     FB.getLoginStatus(function(response) {
       if (response.status == 'connected') {
-        self.isAuthenticated = true;
-        self.uid = response.authResponse.userID;
-        console.log(self);
+        self.initializeWithAuthResponse(response);
       }
       callback(self);
     });
@@ -24,8 +31,7 @@ module.exports = {
 
     FB.login(function(response) {
       if (response.status == 'connected') {
-        self.isAuthenticated = true;
-        self.uid = response.authResponse.userID;
+        self.initializeWithAuthResponse(response);
         callback();
       } else {
         // TODO: error handling

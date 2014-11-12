@@ -18,11 +18,7 @@ window.app = new Vue({
     currentView: 'loading',
     user: user,
     appGlobals: {
-      apiUrlBase: 'http://localhost:3000/api/v1',
-      ajaxHeaders: {
-        // TODO: set valid token
-        Authorization: 'Token token=1'
-      }
+      apiUrlBase: 'http://localhost:3000/api/v1'
     }
   },
 
