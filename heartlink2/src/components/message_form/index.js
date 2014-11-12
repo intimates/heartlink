@@ -58,7 +58,7 @@ module.exports = {
     },
 
     sendMessage: function() {
-      var parent = self.$parent;
+      var parent = this.$parent;
       var global = this.$parent.$data.appGlobals;
 
       // FIXME: not cool
