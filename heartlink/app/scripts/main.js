@@ -9,6 +9,8 @@
   var openedMessagePosition = {
     x: 0, y: 0
   };
+  
+  $("div[id^='message-']").draggable();
 
   window.app = new Vue({
     el: '#main',
