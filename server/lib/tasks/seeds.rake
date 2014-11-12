@@ -14,5 +14,11 @@ namespace :seeds do
       guest = User.where(uid: '1').first_or_create(name: 'GUEST', provider: 'facebook')
       Message.generate_default_messages_for(guest)
     end
+
+    desc 'Generate default messages for user with given uid'
+    task :messages, [:uid] do |t, args|
+      user = User.where(uid: args.first).first
+      Message.generate_default_messages_for(user)
+    end
   end
 end
