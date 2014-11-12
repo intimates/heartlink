@@ -1,3 +1,8 @@
+#messages-container
+{
+  position: relative;
+}
+
 .message-bubble
 {
   background-color: rgba(255, 255, 255, 0.7);
@@ -20,12 +25,12 @@
   font-family: 'Hiragino Kaku Gothic ProN';
   font-size: normal;
   font-weight: bold;
-  height: 30px;
   overflow: hidden;
   padding: 5px 10px 5px 10px;
   position: absolute;
   text-align: center;
-  width: 80%;
+  width: 0;
+  height: 0;
   z-index: 5;
 }
 

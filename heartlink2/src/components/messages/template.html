@@ -8,7 +8,7 @@
 
   <button v-on="click: openMessageForm">Compose</button>
 
-  <div v-if="message" id="message-content" class="message-content" v-effect="message-content">
+  <div v-if="message" id="message-content" class="message-content" v-transition="message-content-transition">
     <p v-text="message.body"></p>
     <button v-on="click: closeMessage">Close</button>
   </div>
