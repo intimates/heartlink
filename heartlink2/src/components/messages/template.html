@@ -1,6 +1,9 @@
 <div id="messages-container">
-  <div v-repeat="messages" v-on="click: openMessage(id)">
-    <div v-text="id"></div>
+  <div v-repeat="messages" v-on="click: openMessage(id)" v-attr="id: 'message-'+ id" class="message-bubble" v-style="
+    left: x +'px',
+    top : y +'px'
+    ">
+    <div  v-attr="id: 'pn-'+ id, class: 'pn-color '+ imageClass" v-style="background-color: 'rgba('+ color.r +', '+ color.g +', '+ color.b +', '+ color.a +')'"></div>
   </div>
 
   <button v-on="click: openMessageForm">Compose</button>

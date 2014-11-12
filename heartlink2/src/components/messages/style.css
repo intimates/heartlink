@@ -1,1 +1,59 @@
-/* TODO: Write styles */
+.message-bubble
+{
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(0, 0, 0, 0.9);
+  border-radius: 28px;
+  box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+  height: 56px;
+  position: absolute;
+  width: 56px;
+  z-index: 2;
+}
+
+.message-content
+{
+  background-color: rgba(255, 255, 255, 1);
+  background-image: url('/images/letter1.png');
+  background-size: 100% 100%;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+  font-family: 'Hiragino Kaku Gothic ProN';
+  font-size: normal;
+  font-weight: bold;
+  height: 30px;
+  overflow: hidden;
+  padding: 5px 10px 5px 10px;
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  z-index: 5;
+}
+
+.pn-color
+{
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 26px;
+  height: 52px;
+  margin: -1px 0px 0px -1px;
+  position: absolute;
+  width: 52px;
+  z-index: 2;
+}
+.pn-color.neutral
+{
+  background-image: -webkit-image-set(url("/images/mail_white@x1.png") 1x, url("/images/mail_white@x2.png") 2x);
+}
+.pn-color.negative
+{
+  background-image: -webkit-image-set(url("/images/mail_black@x1.gif") 1x, url("/images/mail_black@x2.gif") 2x);
+}
+.pn-color.positive
+{
+  background-image: -webkit-image-set(url("/images/mail_white@x1.gif") 1x, url("/images/mail_white@x2.gif") 2x);
+}
+.pn-color.opened
+{
+  background-image: -webkit-image-set(url("/images/mail_white_opened@x1.png") 1x, url("/images/mail_white_opened@x2.png") 2x);
+  background-position: center top;
+}
