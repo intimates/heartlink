@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <form>
+    <div class="form-group">
+      <label for="userQuery">To:</label>
+      <input type="text" v-model="userQuery" id="userQuery" class="form-control" />
+      <select v-model="message.to_uid" id="recipient-select" class="form-control">
+        <option
+        v-repeat="recipientCandidates | filterBy userQuery in name"
+        v-attr="value:uid"
+        v-text="name">
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <textarea v-model="message.body" row="3" class="form-control"></textarea>
+    </div>
+
+    <button v-on="click: sendMessage" type="button" class="btn btn-default">Send</button>
+  </form>
+</div>

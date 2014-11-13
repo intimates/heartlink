@@ -15,12 +15,14 @@
 
 ### Install dependencies
 
-1. `npm install`
-2. `bower install`
+1. `npm install -g browserify beefy`
+2. `npm install`
+3. `bower install` (I want to remove bower in the future...)
 
 ### Start writing code
 
-1. start server: `grunt serve`
+1. watch js and build automatically: `npm run dev`
+2. start server: `beefy src/main.js`
 
 ## Contribution
 
@@ -33,3 +35,4 @@ We are following the GitHub Flow.
 5. merge it after at least one member said LGTM
 
 For more information, please read: [Understanding the GitHub Flow · GitHub Guides](https://guides.github.com/introduction/flow/index.html)
+
