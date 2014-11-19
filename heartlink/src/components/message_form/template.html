@@ -13,10 +13,10 @@
     </ul>
   </div>
 
-  <div class="form-group">
-    <textarea v-model="message.body" class="message-form-body"></textarea>
-  </div>
+  <textarea v-model="message.body" class="message-form-body"></textarea>
 
-  <button v-on="click: closeForm">キャンセル</button>
-  <button v-on="click: sendMessage">送信</button>
+  <div class="buttons">
+    <button class="button-cancel" v-on="click: closeForm">キャンセル</button>
+    <button class="button-submit" v-on="click: sendMessage">送信</button>
+  </div>
 </div>

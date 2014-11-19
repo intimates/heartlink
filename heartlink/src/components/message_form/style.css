@@ -8,11 +8,10 @@
   border: 2px solid rgba(0, 0, 0, 0.8);
   /* display: none; */
   font-size: 12px;
-  height: 10%;
   margin: 3px;
   position: absolute;
   -webkit-transform: (0deg);
-  width: 80%;
+  width: 300px;
   z-index: 6;
 }
 
@@ -66,25 +65,20 @@ button.user-select:last-child {
   border-bottom: 2px solid rgba(0, 0, 0, 0.8);
 }
 
-div.post-operation {
-  margin-top: 5px;
+.buttons {
   text-align: center;
 }
 
-button.post-cancel {
+.button-cancel {
   background: rgba(204, 68, 37, 0.6);
   border: 2px solid rgba(204, 68, 37, 0.8);
   font-size: small;
-  margin: 3px;
-  padding: 2px;
+  padding: 5px 3px;
 }
 
-button.post-submit {
+.button-submit {
   background: rgba(129, 204, 42, 0.6);
   border: 2px solid rgba(129, 204, 42, 0.8);
   font-size: small;
-  margin: 3px;
-  padding: 4px 2px 2px 2px;
+  padding: 5px 18px;
 }
-
-
