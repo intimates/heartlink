@@ -1,6 +1,7 @@
 require('insert-css')(require('./style.css'))
 
 var $ = require('jquery-browserify')
+require('../../../bower_components/jquery-easing/jquery.easing.js');
 
 module.exports = {
   template: require('./template.html'),
@@ -38,6 +39,22 @@ module.exports = {
     });
 
     $('#user-query').on('focus', self.showRecipientCandidates);
+
+    $("#message-form").css({
+      "display": "block",
+      "opacity": 0.0,
+      "top"    : $(window).scrollTop() + $(window).height() * 0.5 - $("#message-form").height() * 0.5,
+      "left"   : $(window).width() * 0.5
+    }).animate({
+      "opacity": 1.0,
+      "left"   : $(window).width() * 0.5 - $("#message-form").width() * 0.5
+    }, {
+      duration: 500, easing: "easeInOutBack",
+      step: function(now){
+        $(this).css("left", ($(window).width() * 0.5 - $("#message-form").width() * 0.5) * (1-now));
+        $(this).css('transform', 'rotate('+ (now) * -0.1 +'deg)');
+      }
+    });
   },
 
   methods: {

@@ -6,12 +6,12 @@
   background-position: top center;
   box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
   border: 2px solid rgba(0, 0, 0, 0.8);
-  /* display: none; */
+  display: none;
   font-size: 12px;
   margin: 3px;
   position: absolute;
   -webkit-transform: (0deg);
-  width: 300px;
+  width: 80%;
   z-index: 6;
 }
 
