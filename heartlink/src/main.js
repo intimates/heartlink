@@ -43,6 +43,14 @@ window.app = new Vue({
     },
 
     initLayout: function() {
+      // preload images
+      jQuery("<img>").attr("src", "./images/send_message@x2.gif");
+      jQuery("<img>").attr("src", "./images/mail_white_opened@x2.png");
+      jQuery("<img>").attr("src", "./images/mail_black@x2.gif");
+      jQuery("<img>").attr("src", "./images/mail_white@x2.gif");
+      jQuery("<img>").attr("src", "./images/stamp@x2.png");
+      jQuery("<img>").attr("src", "./images/letter1.jpg");
+
       // Background Settings.
       $("body").css({height: $(window).height() * 3});
       // TODO: ここに背景の星とか、かもめとかを設置するコードも記載したい。
