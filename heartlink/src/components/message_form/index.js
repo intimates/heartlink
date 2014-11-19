@@ -14,6 +14,7 @@ module.exports = {
         body: ''
       },
       recipientCandidates: [],
+      recipient: null,
       userQuery: ''
     }
   },
@@ -33,17 +34,24 @@ module.exports = {
     jqxhr.done(function(data) {
       self.$data.recipientCandidates = data.users;
       // create empty recipient
-      self.$data.recipientCandidates.push({ name: '', to_uid: '' });
+      self.$data.recipientCandidates.push({ name: '', uid: '' });
     });
+
+    $('#user-query').on('focus', self.showRecipientCandidates);
   },
 
   methods: {
+    selectUser: function(user) {
+      this.$data.recipient = user;
+      $('#user-query').val(user.name);
+      this.hideRecipientCandidates();
+    },
+
     sendMessage: function() {
       var parent = this.$parent;
       var global = this.$parent.$data.appGlobals;
 
-      // FIXME: not cool
-      this.$data.message.to_uid = $('#recipient-select option:selected').val();
+      this.$data.message.to_uid = this.$data.recipient.uid;
 
       var jqxhr = $.ajax({
         type: 'POST',
@@ -51,6 +59,19 @@ module.exports = {
         headers: parent.user.ajaxHeaders,
         data: { message: this.$data.message }
       });
-    }
+    },
+
+    closeForm: function() {
+      var parent = this.$parent;
+      parent.changeView('messages');
+    },
+
+    showRecipientCandidates: function() {
+      $('#recipient-select-box').show();
+    },
+
+    hideRecipientCandidates: function() {
+      $('#recipient-select-box').hide();
+    },
   }
 }
