@@ -1,3 +1,4 @@
+require('insert-css')(require('./normalize.css'));
 require('insert-css')(require('./app.css'));
 
 var $ = require('jquery-browserify');
