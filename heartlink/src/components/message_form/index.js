@@ -51,14 +51,27 @@ module.exports = {
       var parent = this.$parent;
       var global = this.$parent.$data.appGlobals;
 
-      this.$data.message.to_uid = this.$data.recipient.uid;
+      var recipient = this.$data.recipient;
+      var message = this.$data.message;
+      message.to_uid = recipient === null ? '' : recipient.uid;
+
+      if (message.to_uid === '') {
+        alert('宛先を選択してください');
+        return;
+      }
+      if (message.body === '') {
+        alert('本文を入力してください');
+        return;
+      }
 
       var jqxhr = $.ajax({
         type: 'POST',
         url: global.apiUrlBase + '/messages',
         headers: parent.user.ajaxHeaders,
-        data: { message: this.$data.message }
+        data: { message: message }
       });
+
+      this.closeForm();
     },
 
     closeForm: function() {
