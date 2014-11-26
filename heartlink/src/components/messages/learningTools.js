@@ -68,7 +68,7 @@ module.exports = {
     grouping: function(idx, bubbleWidth, bubbleHeight, windowWidth, windowHeight){
       $("#messages-container").append('<div id="grouping-messages-'+ idx +'" class="grouping-messages"></div>');
       
-      var kmeans = {gravity: this.gravity, nextGravity: this.nextGravity};
+      var kmeans = {gravity: this.gravity, nextGravity: this.nextGravity};  // bindの中でthisがmessages要素になってしまうため一時保持
       var minX = Math.min.apply(null, this.nextGravity[idx].x);
       var minY = Math.min.apply(null, this.nextGravity[idx].y);
       
