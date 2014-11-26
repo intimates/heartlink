@@ -8,7 +8,7 @@
 
   <div id="trash" class="trash"></div>
   <div id="post" class="post" v-on="click: openMessageForm"></div>
-  <div id="refresh" class="refresh"></div>
+  <div id="refresh" class="refresh" v-on="click: refresh"></div>
 
   <div v-if="message" id="message-content" class="message-content" v-transition="message-content-transition">
     <p v-text="message.body"></p>
