@@ -16,3 +16,23 @@ body {
 		color-stop(0.71, rgba(17,104,153,1)),
 		to(rgba(25, 25, 112, 1)));
 }
+
+.stars
+{
+  height: 40px;
+  left: 0px;
+  position: absolute;
+  top: 73%;
+  width: 100%;
+  z-index: 0;
+}
+
+img.star
+{
+  position: absolute;
+}
+
+img.env_images
+{
+  position: absolute;
+}

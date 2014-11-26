@@ -53,7 +53,21 @@ window.app = new Vue({
 
       // Background Settings.
       $("body").css({height: $(window).height() * 3});
-      // TODO: ここに背景の星とか、かもめとかを設置するコードも記載したい。
+      var doc_size = {height: $(document).height(), width: $(document).width()};
+      $("img#st0").css({left: "20px" , top: "60px"});
+      $("img#st1").css({left: "40px" , top: "40px"});
+      $("img#st2").css({left: "70px" , top: "20px"});
+      $("img#st3").css({left: "90px" , top: "30px"});
+      $("img#st4").css({left: "120px", top: "10px"});
+      $("img#st5").css({left: "180px" , top: "40px"});
+      $("img#st6").css({left: "200px" , top: "50px"});
+      $("img#st7").css({left: "240px" , top: "20px"});
+      $("img#st8").css({left: "280px" , top: "30px"});
+      $("img#st9").css({left: "300px", top: "60px"});
+      $("img#env_sun").css({left: doc_size.width * 0.1, top: doc_size.height * 0.20});
+      $("img#env_moon").css({left: doc_size.width * 0.2, top: doc_size.height * 0.93});
+      $("img#env_bird1").css({left: doc_size.width * 0.75, top: doc_size.height * 0.45});
+      $("img#env_bird2").css({left: doc_size.width * 0.85, top: doc_size.height * 0.46});
     }
   }
 });
