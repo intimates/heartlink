@@ -1,0 +1,84 @@
+.message-form-wrapper {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 1);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: top center;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  display: none;
+  font-size: 12px;
+  margin: 3px;
+  position: absolute;
+  -webkit-transform: (0deg);
+  width: 80%;
+  z-index: 6;
+}
+
+.user-query {
+  width: 100%;
+  height: 20px;
+  margin: 5px auto 0;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.recipient-select-box {
+  display: none;
+  position: relative;
+  width: 100%;
+}
+
+.recipient-select {
+  background-color: rgba(255, 255, 255, 1);
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  z-index: 8;
+}
+
+.recipient-candidate {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, 0.8);
+  border-right: 2px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 1);
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+}
+
+.message-form-body {
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  margin: 5px auto;
+  width: 100%;
+  height: 100px;
+}
+
+.message-form-to {
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  margin: 2px 0px 0px 3px;
+  width: 92%;
+  height: 20px;
+}
+
+button.user-select:last-child {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+.buttons {
+  text-align: center;
+}
+
+.button-cancel {
+  background: rgba(204, 68, 37, 0.6);
+  border: 2px solid rgba(204, 68, 37, 0.8);
+  font-size: small;
+  padding: 5px 3px;
+}
+
+.button-submit {
+  background: rgba(129, 204, 42, 0.6);
+  border: 2px solid rgba(129, 204, 42, 0.8);
+  font-size: small;
+  padding: 5px 18px;
+}

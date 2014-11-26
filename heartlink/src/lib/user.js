@@ -37,5 +37,16 @@ module.exports = {
         // TODO: error handling
       }
     });
+  },
+
+  login_as_guest: function(callback) {
+    var GUEST_USER_ID = 1;
+    var fakeAuthResponse = {
+      authResponse: {
+        userID: GUEST_USER_ID
+      }
+    };
+    this.initializeWithAuthResponse(fakeAuthResponse);
+    callback();
   }
 };

@@ -69,6 +69,14 @@ module.exports = {
       this.$parent.changeView('message_form');
     },
 
+    refresh: function() {
+      var parent = this.$parent;
+      this.$parent.changeView('loading');
+      setTimeout(function() {
+        parent.changeView('messages');
+      }, 500);
+    },
+
     calcMessageParams: function(messages) {
       var bubbleWidth = 56;
       var bubbleHeight = 56;
