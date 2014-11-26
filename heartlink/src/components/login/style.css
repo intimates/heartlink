@@ -1,1 +1,110 @@
-/* TODO: Write styles */
+/* FIXME: just imported from previous version */
+
+.message-bubble
+{
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(0, 0, 0, 0.9);
+  border-radius: 28px;
+  box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+  height: 56px;
+  position: absolute;
+  width: 56px;
+  z-index: 2;
+}
+
+.pn_color {
+  background-image: -webkit-image-set(url("../images/mail_white@x1.png") 1x, url("../images/mail_white@x2.png") 2x);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 52px;
+  height: 52px;
+}
+
+div.login_world
+{
+	background: -webkit-gradient(linear, left top, left bottom,
+		from(rgba(5, 171, 224, 1)),
+		color-stop(0.25, rgba(173, 255, 47, 1)),
+		color-stop(0.50, rgba(255, 132, 71, 1)),
+		color-stop(0.71, rgba(17,104,153,1)),
+		to(rgba(25, 25, 112, 1)));
+	height:100%;
+	left:0px;
+	position:absolute;
+	top:0px;
+	width:100%;
+}
+
+div.login_card
+{
+	background-color: rgba(255, 255, 255, 1);
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: top center;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+	border: 2px solid rgba(0, 0, 0, 0.8);
+	display: none;
+	height: 10%;
+	margin: 3px;
+	position: absolute;
+	text-align: center;
+	width: 80%;
+	z-index: 6;
+	-webkit-transform: matrix(0.998440764181981, -0.0558215049931638, 0.0558215049931638, 0.998440764181981, 0, 0);
+}
+
+div.login_face
+{
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	margin-top: 0px;
+	line-height: 30px;
+}
+
+span.login_submit
+{
+	background: rgba(129, 204, 42, 0.6);
+	border: 2px solid rgba(129, 204, 42, 0.8);
+	box-shadow: 5px 5px 4px #aaa;
+	margin: 3px;
+	padding:5px 4px 4px 4px;
+}
+
+input.login
+{
+	padding: 10px;
+	margin: 10px 0 0 0; 
+	background:rgba(255,255,255,0.5); 
+	width: 200px; 
+	font-size: 14px; 
+	color: #000;
+	text-align:center;
+	border: 1px #ddd solid;
+	box-shadow: 5px 5px 4px #aaa;
+	transition: background 0.2s linear;
+}
+input.login:hover
+{ 
+	background:rgba(224,224,224,0.3); 
+}
+
+input.login.mail
+{
+	background-position:top;
+	background-repeat:repeat-x;
+	background-image:url("../images/login_mail.png");
+}
+input.login.pass
+{
+	background-position:top;
+	background-repeat:repeat-x;
+	background-image:url("../images/login_pass.png");
+}
+
+img.stamp
+{
+	opacity: 0.0;
+	position: absolute;
+	z-index: 7;
+}
