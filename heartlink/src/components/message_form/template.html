@@ -1,22 +1,24 @@
-<div id="message-form" class="message-form">
-  <input type="text" v-model="userQuery" id="user-query" class="user-query" placeholder="宛先" />
+<div id="message-form-wrapper" class="message-form-wrapper">
+  <div id="message-form" class="message-form">
+    <input type="text" v-model="userQuery" id="user-query" class="user-query" placeholder="宛先" />
 
-  <div id="recipient-select-box" class="recipient-select-box">
-    <ul id="recipient-select" class="recipient-select">
-      <li
-        class="recipient-candidate"
-        v-repeat="user: recipientCandidates | filterBy userQuery in name"
-        v-on="click: selectUser(user)"
-        v-attr="value:user.uid"
-        v-text="user.name">
-      </li>
-    </ul>
-  </div>
+    <div id="recipient-select-box" class="recipient-select-box">
+      <ul id="recipient-select" class="recipient-select">
+        <li
+          class="recipient-candidate"
+          v-repeat="user: recipientCandidates | filterBy userQuery in name"
+          v-on="click: selectUser(user)"
+          v-attr="value:user.uid"
+          v-text="user.name">
+        </li>
+      </ul>
+    </div>
 
-  <textarea v-model="message.body" class="message-form-body"></textarea>
+    <textarea v-model="message.body" class="message-form-body"></textarea>
 
-  <div class="buttons">
-    <button class="button-cancel" v-on="click: cancelMessage">キャンセル</button>
-    <button class="button-submit" v-on="click: sendMessage">送信</button>
+    <div class="buttons">
+      <button class="button-cancel" v-on="click: cancelMessage">キャンセル</button>
+      <button class="button-submit" v-on="click: sendMessage">送信</button>
+    </div>
   </div>
 </div>

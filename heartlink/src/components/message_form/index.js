@@ -40,14 +40,14 @@ module.exports = {
 
     $('#user-query').on('focus', self.showRecipientCandidates);
 
-    $("#message-form").css({
+    $("#message-form-wrapper").css({
       "display": "block",
       "opacity": 0.0,
-      "top"    : $(window).scrollTop() + $(window).height() * 0.5 - $("#message-form").height() * 0.5,
+      "top"    : $(window).scrollTop() + $(window).height() * 0.5 - $("#message-form-wrapper").height() * 0.5,
       "left"   : $(window).width() * 0.5
     }).animate({
       "opacity": 1.0,
-      "left"   : $(window).width() * 0.5 - $("#message-form").width() * 0.5
+      "left"   : $(window).width() * 0.5 - $("#message-form-wrapper").width() * 0.5
     }, {
       duration: 500, easing: "easeInOutBack",
       step: function(now){
@@ -65,6 +65,7 @@ module.exports = {
     },
 
     sendMessage: function() {
+      var self = this;
       var parent = this.$parent;
       var global = this.$parent.$data.appGlobals;
 
@@ -88,13 +89,37 @@ module.exports = {
         data: { message: message }
       });
 
-      this.closeForm();
+      var topBase = parseInt($('#message-form-wrapper').css('top'));
+      $('#message-form-wrapper').css({
+        'background-image': '-webkit-image-set(url("/images/send_message@x2.gif") 2x)'
+      });
+      $('#message-form').animate({
+        opacity: 0.0
+      }, {
+        duration: 300, easing: 'easeOutCubic',
+        complete: function(){
+          $('#message-form-wrapper').animate({
+            'top'    : '-100px',
+            'opacity': 0.0
+          }, {
+            duration: 800, easing: 'easeInBack',
+            complete: function(){
+              $(this).css({
+                'opacity'         : 0.0,
+                'background-image': 'none',
+                'display'         : 'none',
+              });
+              self.closeForm();
+            }
+          });
+        }
+      });
     },
 
     cancelMessage: function() {
       var self = this;
 
-      $("#message-form").animate({
+      $("#message-form-wrapper").animate({
         "opacity": 0.0
       }, {
         duration: 500, easing: "easeOutCubic",
