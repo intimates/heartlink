@@ -1,5 +1,16 @@
 /* FIXME: just imported from previous version */
 
+.guest-login {
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+}
+
+.guest-login-button {
+  display: block;
+  margin: 0 auto;
+}
+
 .message-bubble
 {
   background-color: rgba(255, 255, 255, 0.7);

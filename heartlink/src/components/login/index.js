@@ -165,6 +165,14 @@ module.exports = {
           }
         });
       });
+    },
+
+    login_as_guest: function() {
+      var self = this;
+      var parent = self.$parent;
+      parent.user.login_as_guest(function() {
+        parent.changeView('messages');
+      });
     }
   }
 }
