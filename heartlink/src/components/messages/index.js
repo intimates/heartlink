@@ -2,6 +2,8 @@ require('insert-css')(require('./style.css'))
 
 var Vue = require('vue');
 var $ = require('jquery-browserify');
+var LearningTools = require('./learningTools.js');
+
 // TODO: use jquery plugins the better way
 require('../../../bower_components/jquery-easing/jquery.easing.js');
 require('../../../bower_components/jquery-ui/jquery-ui.js');
@@ -68,6 +70,11 @@ module.exports = {
     },
 
     calcMessageParams: function(messages) {
+      var bubbleWidth = 56;
+      var bubbleHeight = 56;
+      var windowWidth = $(window).width();
+      var windowHeight = $(window).height() * 3; // FIXME: get 'REAL' window height.
+        
       $.each(messages, function() {
         // Set pn_value
         var r, g, b, a;
@@ -82,10 +89,6 @@ module.exports = {
         this.color = {r: r, g: g, b: b, a: a};
 
         // Set Message x, y
-        var bubbleWidth = 56;
-        var bubbleHeight = 56;
-        var windowWidth = $(window).width();
-        var windowHeight = $(window).height() * 3; // FIXME: get 'REAL' window height.
 
         var dateObj = new Date(this.sent_at);
         var hour = dateObj.getHours();
@@ -107,8 +110,50 @@ module.exports = {
           this.imageClass = "opened";
         }
       });
+      
+      /**** k-means start ****/
+      var MESSAGE_BORDER_MODIFICATION_SCALE = 1.25;
+      var axisPosition = [-1.00, -0.50, 0.00, 0.50, 1.00];
+      var AXIS_SIZE = axisPosition.length;
+      var HOUR_SIZE = 24;
+      
+      var kmeans = LearningTools.kmeans;
+      kmeans.init(AXIS_SIZE, HOUR_SIZE);
+      
+      for(var axis = 0; axis < AXIS_SIZE; axis++) {
+        for(var hour = 0; hour < HOUR_SIZE; hour++) {
+          var idx = HOUR_SIZE * axis + hour;
+          kmeans.gravity[idx] = {
+            x: (windowWidth - bubbleWidth) * 0.5 + (windowWidth - bubbleWidth * MESSAGE_BORDER_MODIFICATION_SCALE) * 0.5 * axisPosition[axis],
+            y: windowHeight / 25 * hour + bubbleHeight * 0.5
+          } // ポジネガ判定と同じ数式で配置。pn_valueがaxisPositionに変わっただけ。
+          
+          $("#messages-container").append('<div id="gravity'+ idx +'" class="gravity"></div>');
+          
+          /*** デバッグ時、各クラスターの座標を表示するための処理 ***/
+          $("#gravity"+ idx).css({
+            left: kmeans.gravity[idx].x + bubbleWidth * 0.5,
+            top : kmeans.gravity[idx].y + bubbleWidth * 0.5
+          }).text(idx);
+        }
+      }
+      
+      for(var learning = 0; learning < 1; learning++) { // 学習の反復回数、今は入るだけで回らない。
+        kmeans.learn(messages, AXIS_SIZE, HOUR_SIZE);
+      }
+      
+      for(var axis = 0; axis < AXIS_SIZE; axis++) {
+        for(var hour = 0; hour < HOUR_SIZE; hour++) {
+          var idx = HOUR_SIZE * axis + hour;
+          if(1 < kmeans.nextGravity[idx].having.length) {
+            kmeans.grouping(idx, bubbleWidth, bubbleHeight, windowWidth, windowHeight);
+          }
+        }
+      }
+      /**** k-means end ****/
+      
     },
-
+    
     registerVueTransition: function() {
       var self = this;
       var openedMessageId = null;
@@ -167,16 +212,16 @@ module.exports = {
         containment: "body",
         scroll: false,
 
-        start: function(){
+        start: function() {
           dragstartPosition = {
             x: $(this).css('left'),
             y: $(this).css('top'),
             z: $(this).css("z-index")
           };
-          $(this).css({'z-index': 5});
+          $(this).css({'z-index': 8});
         },
 
-        drag: function(){
+        drag: function() {
           $("#trash").not(":animated").animate({
             "height"       : scaledTrashSize.height,
             "width"        : scaledTrashSize.width,
@@ -186,7 +231,7 @@ module.exports = {
           });
         },
 
-        stop: function(){
+        stop: function() {
           $(this).animate({
             "left": dragstartPosition.x,
             "top" : dragstartPosition.y,

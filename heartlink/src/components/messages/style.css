@@ -11,7 +11,7 @@
   background-color: rgba(255, 255, 255, 0.7);
   border: 3px solid rgba(0, 0, 0, 0.9);
   border-radius: 28px;
-  box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
   height: 56px;
   position: absolute;
   width: 56px;
@@ -24,7 +24,7 @@
   background-image: url('/images/letter1.png');
   background-size: 100% 100%;
   border: 2px solid rgba(0, 0, 0, 0.8);
-  box-shadow: 8px 8px 10px rgba(0,0,0,0.4);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
   font-family: 'Hiragino Kaku Gothic ProN';
   font-size: normal;
   font-weight: bold;
@@ -73,7 +73,7 @@
   background-image: -webkit-image-set(url("/images/message_trash@xM.png") 2x);
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 8px 8px 10px rgba(0, 0,0,0.4);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
   background-size: 60%;
   border: 3px solid rgba(0, 0, 0, 0.7);
   border-radius: 23px;
@@ -84,10 +84,67 @@
   position: fixed;
   bottom: 25px;
   width: 40px;
-  z-index: 4;
+  z-index: 6;
 }
 
 .trash-hover
 {
-  border-color: "rgba(0, 0, 0, 0.7)";
+  border-color: rgba(0, 0, 0, 0.7);
+}
+
+.grouping-curtain
+{
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+  display: none;
+  position: absolute;
+  z-index: 4;
+}
+
+.closer-curtain
+{
+  background-color: rgba(0, 0, 0, 0.0);
+  display: none;
+  position: absolute;
+  z-index: 3;
+}
+
+.grouping-messages
+{
+  color: white;
+  font-size: small;
+  text-align: center;
+  position: absolute;
+  z-index: 3;
+}
+
+.grouping-close
+{
+  display: none;
+  background-color: rgba(204, 42, 42, 0.7);
+  background-image: -webkit-image-set(url("/images/grouping_close@x1.png") 1x, url("/images/grouping_close@x2.png") 2x);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+  height: 40px;
+  position: absolute;
+  width: 40px;
+  z-index: 4;
+}
+
+
+/*** 以下 デバッグ用。display:noneを消したら表示 ***/
+.gravity
+{
+  display: none;
+  color: white;
+  font-size: xx-small;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
