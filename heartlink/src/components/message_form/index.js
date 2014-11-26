@@ -91,6 +91,23 @@ module.exports = {
       this.closeForm();
     },
 
+    cancelMessage: function() {
+      var self = this;
+
+      $("#message-form").animate({
+        "opacity": 0.0
+      }, {
+        duration: 500, easing: "easeOutCubic",
+        step: function(now){
+          $(this).css("top", "+="+ now * 10 +"px");
+        },
+        complete: function(){
+          $(this).css({ "display": "none" });
+          self.closeForm();
+        }
+      });
+    },
+
     closeForm: function() {
       var parent = this.$parent;
       parent.changeView('messages');
