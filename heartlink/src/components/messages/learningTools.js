@@ -186,7 +186,6 @@ module.exports = {
             duration: 400,
             easing: "easeOutExpo",
             complete: function(){
-              $(this).css({ display: "none" });
               $("#grouping-messages-"+ groupID).css({ zIndex: 3 });
             }
           });
