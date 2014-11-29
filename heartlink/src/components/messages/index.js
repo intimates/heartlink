@@ -35,6 +35,7 @@ module.exports = {
       self.calcMessageParams(data.messages);
       Vue.nextTick(function() {
         self.setDraggable();
+        self.setScrollable();
       });
     });
 
@@ -304,6 +305,12 @@ module.exports = {
           // TODO: make visual feedback
           //$("#trash").css({"border-color": "rgba(0, 0, 0, 0.7)"});
         }
+      });
+    },
+    
+    setScrollable: function() {
+      $("#messages-container").draggable({
+        axis: "x"
       });
     }
   }
