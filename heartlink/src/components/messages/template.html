@@ -11,11 +11,12 @@
   <div id="refresh" class="refresh" v-on="click: refresh"></div>
 
   <div v-if="message" id="message-content" class="message-content" v-transition="message-content-transition">
-    <p v-text="message.body"></p>
-    <button v-on="click: closeMessage">Close</button>
+    <!-- <div id="body-close" class="close-button body"></div> 閉じるボタン（デザイン再考）//-->
+    <p v-text="message.body" class="message-body"></p>
   </div>
   <div id="grouping-curtain" class="grouping-curtain">
-     <div id="grouping-close" class="grouping-close"></div>
+     <div id="grouping-close" class="close-button grouping"></div>
   </div>
 </div>
-<div id="closer-curtain" class="closer-curtain"></div>
+<div id="closer-curtain-group" class="closer-curtain group"></div>
+<div id="closer-curtain-body" class="closer-curtain body"></div>
