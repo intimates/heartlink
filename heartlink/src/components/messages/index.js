@@ -212,7 +212,7 @@ module.exports = {
     },
 
     setDraggable: function() {
-      var THIS = this;
+      var self = this;
       var dragstartPosition = {x: 0, y: 0, z: 0};
       var trashSize = {width: $("#trash").css("width"), height: $("#trash").css("height"), borderRadius: $("#trash").css("border-radius")};
       var scaledTrashSize = {width: "200px", height: "200px", borderRadius: "102px"};
@@ -268,19 +268,19 @@ module.exports = {
           var dropItemID = ui.draggable.attr("id").split('-')[1];
           var dropItemCluster = null;
           
-          $.each(THIS.$data.messages, function() {
+          $.each(self.$data.messages, function() {
             if(this.id == dropItemID) {
               dropItemCluster = this.cluster;
             }
           });
           
-          var CLUSTER = LearningTools.kmeans.nextGravity;
-          arrayIdx = CLUSTER[dropItemCluster].having.indexOf(parseInt(dropItemID));
-          CLUSTER[dropItemCluster].having.splice(arrayIdx, 1);
-          CLUSTER[dropItemCluster].x.splice(arrayIdx, 1);
-          CLUSTER[dropItemCluster].y.splice(arrayIdx, 1);
+          var cluster = LearningTools.kmeans.nextGravity;
+          var arrayIdx = cluster[dropItemCluster].having.indexOf(parseInt(dropItemID));
+          cluster[dropItemCluster].having.splice(arrayIdx, 1);
+          cluster[dropItemCluster].x.splice(arrayIdx, 1);
+          cluster[dropItemCluster].y.splice(arrayIdx, 1);
           
-          if(CLUSTER[dropItemCluster].having.length < 2) {
+          if(cluster[dropItemCluster].having.length < 2) {
             $("#grouping-messages-"+ dropItemCluster).hide();
           }
           // TODO: delete message
