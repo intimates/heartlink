@@ -121,7 +121,7 @@
 .grouping-close
 {
   display: none;
-  background-color: rgba(204, 42, 42, 0.7);
+  background-color: rgba(214, 82, 82, 1);
   background-image: -webkit-image-set(url("/images/grouping_close@x1.png") 1x, url("/images/grouping_close@x2.png") 2x);
   background-position: center;
   background-repeat: no-repeat;
@@ -134,8 +134,6 @@
   z-index: 4;
 }
 
-
-/*** 以下 デバッグ用。display:noneを消したら表示 ***/
 .gravity
 {
   display: none;

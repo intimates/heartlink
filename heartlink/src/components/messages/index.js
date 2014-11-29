@@ -212,6 +212,7 @@ module.exports = {
     },
 
     setDraggable: function() {
+      var self = this;
       var dragstartPosition = {x: 0, y: 0, z: 0};
       var trashSize = {width: $("#trash").css("width"), height: $("#trash").css("height"), borderRadius: $("#trash").css("border-radius")};
       var scaledTrashSize = {width: "200px", height: "200px", borderRadius: "102px"};
@@ -264,6 +265,24 @@ module.exports = {
 
         drop: function(ev, ui) {
           ui.draggable.hide();
+          var dropItemID = ui.draggable.attr("id").split('-')[1];
+          var dropItemCluster = null;
+          
+          $.each(self.$data.messages, function() {
+            if(this.id == dropItemID) {
+              dropItemCluster = this.cluster;
+            }
+          });
+          
+          var cluster = LearningTools.kmeans.nextGravity;
+          var arrayIdx = cluster[dropItemCluster].having.indexOf(parseInt(dropItemID));
+          cluster[dropItemCluster].having.splice(arrayIdx, 1);
+          cluster[dropItemCluster].x.splice(arrayIdx, 1);
+          cluster[dropItemCluster].y.splice(arrayIdx, 1);
+          
+          if(cluster[dropItemCluster].having.length < 2) {
+            $("#grouping-messages-"+ dropItemCluster).hide();
+          }
           // TODO: delete message
         },
 

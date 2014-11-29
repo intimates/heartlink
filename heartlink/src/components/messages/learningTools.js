@@ -79,6 +79,7 @@ module.exports = {
         height: Math.max.apply(null, this.nextGravity[idx].y) - minY + bubbleHeight +"px"
       }).bind('touchstart', {groupID: idx}, function(event) {
         /**** group_open start ****/
+        $(this).css({ zIndex: 0 }); // 触れさせなくする。（物理的にunbind）
         
         var groupID = event.data.groupID;
         var RADIUS = 60;  // クラスターの重心を原点として半径RADIUS[px]の円周上にメッセージを配置。
@@ -185,9 +186,8 @@ module.exports = {
             duration: 400,
             easing: "easeOutExpo",
             complete: function(){
-              $(this).css({
-                display: "none"
-              })
+              $(this).css({ display: "none" });
+              $("#grouping-messages-"+ groupID).css({ zIndex: 3 });
             }
           });
         });
