@@ -27,7 +27,6 @@ describe 'Messages API v1', type: :request do
 
     let(:message_params) do
       {
-        from_uid: sender.uid,
         to_uid: recipient.uid,
         body: body
       }
@@ -36,7 +35,6 @@ describe 'Messages API v1', type: :request do
     it 'creates new message' do
       post '/api/v1/messages', message: message_params, format: 'json'
       created_message = Message.last
-      expect(created_message.from_uid).to eq(sender.uid)
       expect(created_message.to_uid).to eq(recipient.uid)
       expect(created_message.body).to eq(body)
     end
