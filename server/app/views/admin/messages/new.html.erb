@@ -13,8 +13,6 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :from_uid, value: current_user.uid %>
-
   <div class="field">
     <%= f.select(:to_uid, options_from_collection_for_select(User.all, :uid, :name)) %>
   </div>

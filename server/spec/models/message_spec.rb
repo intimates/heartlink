@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Message, :type => :model do
   describe 'relation with User' do
     let(:user) { FactoryGirl.create(:user) }
-    let(:message) { FactoryGirl.create(:message, from_uid: user.uid) }
+    let(:message) { FactoryGirl.create(:message) }
 
-    it 'belongs to a user' do
-      expect(message.user).to eql(user)
+    it 'does not belong to a user' do
+      expect { message.user }.to raise_error NoMethodError
     end
   end
 

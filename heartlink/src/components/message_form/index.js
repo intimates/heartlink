@@ -10,7 +10,6 @@ module.exports = {
   data: function () {
     return {
       message: {
-        from_uid: '',
         to_uid: '',
         body: ''
       },
@@ -24,8 +23,6 @@ module.exports = {
     var self = this;
     var parent = self.$parent;
     var global = parent.$data.appGlobals;
-
-    this.$data.message.from_uid = parent.user.uid;
 
     var jqxhr = $.ajax({
       url: global.apiUrlBase + '/users',
