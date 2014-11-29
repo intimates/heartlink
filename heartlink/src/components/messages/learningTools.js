@@ -87,7 +87,7 @@ module.exports = {
         
         event.preventDefault(); // スクロールされてしまわないように。
         
-        $("#closer-curtain").css({
+        $("#closer-curtain-group").css({
           display: "block",
           left   : 0,
           top    : 0,
@@ -161,7 +161,7 @@ module.exports = {
           left: RADIUS * 2 - closerWidth * 0.5 - BORDER_OFFSET +"px",
           top : RADIUS * 2 - closerWidth * 0.5 - BORDER_OFFSET +"px"
         });
-        $("#grouping-close, #closer-curtain").on("touch click", function() {
+        $("#grouping-close, #closer-curtain-group").on("touch click", function() {
           $(this).off("touch click");
           
           for(idx in defaultPosition) {
@@ -175,7 +175,7 @@ module.exports = {
             });
           }
           
-          $("#closer-curtain").css({ display: "none" });
+          $("#closer-curtain-group").css({ display: "none" });
           $("#grouping-curtain").animate({
             opacity: 0,
             left   : kmeans.gravity[groupID].x +"px",
@@ -186,7 +186,6 @@ module.exports = {
             duration: 400,
             easing: "easeOutExpo",
             complete: function(){
-              $(this).css({ display: "none" });
               $("#grouping-messages-"+ groupID).css({ zIndex: 3 });
             }
           });

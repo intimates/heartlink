@@ -58,11 +58,25 @@ module.exports = {
         $("#pn-"+ id).removeClass("pn-color negative");
         $("#pn-"+ id).removeClass("pn-color positive");
         $("#pn-"+ id).addClass("pn-color opened");
+        
+        $("#closer-curtain-body").css({
+          display: "block",
+          left   : 0,
+          top    : 0,
+          width  : "100%",
+          height : "100%"
+        });
+        Vue.nextTick(function() {
+          $("#closer-curtain-body, #body-close").on("touch click", function() {
+            self.closeMessage();
+          });
+        });
       });
     },
 
     closeMessage: function() {
       this.$data.message = null;
+      $("#closer-curtain-body").hide();
     },
 
     openMessageForm: function() {
