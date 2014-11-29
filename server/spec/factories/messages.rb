@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :message do
     to_uid "MyString"
-    from_uid "MyString"
     body "MyText"
     raw_body "MyText"
     pn_value 1.5

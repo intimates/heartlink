@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :pn_jp_words
 
   resources :messages
-  get '/sent_messages' => 'messages#sent'
 
   resources :users, :only => [:index, :show]
   root to: 'visitors#index'
@@ -18,8 +17,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :messages, :only => [:index, :show, :create, :destroy]
-      get '/sent_messages' => 'messages#sent'
-
       resources :users, :only => [:index, :show, :create]
     end
   end

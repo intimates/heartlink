@@ -16,11 +16,6 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
     render json: messages, status: :ok
   end
 
-  def sent
-    @messages = Message.where(from_uid: @user.uid)
-    render json: @messages, status: :ok
-  end
-
   def show
     @message.opened_at = Time.now
     @message.save
@@ -49,7 +44,7 @@ class Api::V1::MessagesController < Api::V1::ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:to_uid, :from_uid, :body, :raw_body)
+      params.require(:message).permit(:to_uid, :body, :raw_body)
     end
 
     def authenticate

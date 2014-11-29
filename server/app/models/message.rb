@@ -1,8 +1,6 @@
 class Message < ActiveRecord::Base
   acts_as_paranoid
 
-  belongs_to :user, primary_key: 'uid', foreign_key: 'from_uid'
-
   after_create :calculate_pn_value
 
   scope :today, lambda { where('sent_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day) }
